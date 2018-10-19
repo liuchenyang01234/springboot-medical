@@ -1,0 +1,84 @@
+
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/bootstrap-table.css">
+<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+
+<div class="col-md-9">
+
+    <h3>管理预约时段</h3>
+
+    <table class="table table-hover">
+
+        <tbody>
+        <tr><td><b>添加时间段</b><br>添加可供预约的时间段</td>
+            <td>
+                <input type="button" class="btn btn-info" id="create_doctor" value="添加时间段" data-toggle="modal" data-target="#create-modal">
+            </td>
+            </tr>
+
+        </tbody></table>
+
+
+    <div id="list-range">
+        <table id="range"></table>
+    </div>
+</div>
+
+<!--添加弹框--1-->
+<div class="modal fade" tabindex="-1" role="dialog" id="create-modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" >添加时间段</h4>
+            </div>
+            <div class="modal-body">
+
+                <div id="alertmessage1"></div>
+
+                <div class="row modal-body-height">
+
+                    <div class="col-md-3 col-md-offset-1">
+                        起始时间：
+                    </div>
+                    <div class="col-md-8">
+                        <div class='input-group date' id='datetimepicker1'>
+                            <input type='text' id="begin" class="form-control" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row modal-body-height">
+
+                    <div class="col-md-3 col-md-offset-1">
+                        结束时间：
+                    </div>
+                    <div class="col-md-8">
+                        <div class='input-group date' id='datetimepicker2'>
+                            <input type='text' id="end" class="form-control" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="bOK1" onclick="create()">保存</button>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<script src="js/lib/moment.min.js"></script>
+<script src="js/lib/bootstrap-datetimepicker.min.js"></script>
+<script src="js/caseInfo/bootstrap-table.js"></script>                       <!--table插件-->
+<script src="js/caseInfo/bootstrap-table-zh-CN.js"></script>                 <!--中文table-->
+
+<script src="js/admin/managerange.js"></script>
+<script src="js/util.js"></script>

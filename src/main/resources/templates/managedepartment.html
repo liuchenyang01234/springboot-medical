@@ -1,0 +1,195 @@
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/bootstrap-table.css">
+<link rel="stylesheet" href="css/fileinput.css">
+
+<br>
+<div class="outlet">
+    <!-- Start .outlet -->
+    <!-- Page start here ( usual with .row ) -->
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <!-- col-lg-4 start here -->
+            <div class="panel panel-default plain" id="spr_1">
+                <!-- Start .panel -->
+                <div class="panel-heading white-bg">
+                    <h4 class="panel-title"><i class="ec-user"></i> 导入科室资料</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="bs-callout bs-callout-info">
+                        <h4>导入操作说明</h4>
+                        <p></p>
+                        <a href="javascript:void(0)" id="downloadDepartment">1.点击此处下载相应的excel模板。</a>
+                        <p></p>
+                        <p>2.按照模板的格式填写科室信息。</p>
+                        <p>3.保存修改后的excel文件并上传。</p>
+                    </div>
+                    <input id="excelFile3" type="file" >
+
+                </div>
+            </div>
+            <!-- End .panel -->
+        </div>
+        <!-- col-lg-4 end here -->
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <!-- col-lg-4 start here -->
+            <div class="panel panel-default plain" id="spr_2">
+                <!-- Start .panel -->
+                <div class="panel-heading white-bg">
+                    <h4 class="panel-title"><i class="ec-user"></i> 编辑科室资料</h4>
+                </div>
+                <div class="panel-body">
+
+                    <div id="list-department">
+                        <table id="departments"></table>
+                    </div>
+
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#create-modal">手动添加科室资料</button>
+
+                </div>
+            </div>
+            <!-- End .panel -->
+        </div>
+        <!-- col-lg-4 end here -->
+    </div>
+    <!-- Page End here -->
+</div>
+
+
+<!--添加科室弹框--1-->
+<div class="modal fade" tabindex="-1" role="dialog" id="create-modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" >添加科室</h4>
+            </div>
+            <div class="modal-body">
+
+                <div id="alertmessage1"></div>
+
+                <div class="row modal-body-height">
+
+                    <div class="col-md-3 col-md-offset-1">
+                        科室名：
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="name1" class="form-control" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+
+                <div class="row modal-body-height">
+
+                    <div class="col-md-3 col-md-offset-1">
+                        科室简介：
+                    </div>
+                    <div class="col-md-8">
+                        <textarea id="description1" class="form-control" style="height:200px"></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="bOK1" onclick="create()">保存</button>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<!--修改科室弹框--2-->
+<div class="modal fade" tabindex="-1" role="dialog" id="edit-modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" >修改科室资料</h4>
+            </div>
+            <div class="modal-body">
+
+                <div id="alertmessage2"></div>
+
+                <div class="row modal-body-height">
+
+                    <div class="col-md-3 col-md-offset-1">
+                        科室编号：
+                    </div>
+                    <div class="col-md-8" >
+                        <input type="text" id="d_id" class="form-control" aria-describedby="basic-addon1" disabled="disabled">
+                    </div>
+                </div>
+
+                <div class="row modal-body-height">
+
+                    <div class="col-md-3 col-md-offset-1">
+                        科室名：
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="name2" class="form-control" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+
+                <div class="row modal-body-height">
+
+                    <div class="col-md-3 col-md-offset-1">
+                        科室简介：
+                    </div>
+                    <div class="col-md-8">
+                        <textarea id="description2" class="form-control" style="height:200px"></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="bOK2" onclick="update()">保存</button>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<script src="js/caseInfo/bootstrap-table.js"></script>                       <!--table插件-->
+<script src="js/caseInfo/bootstrap-table-zh-CN.js"></script>                 <!--中文table-->
+
+<script src="js/admin/managedepartment.js"></script>
+<script src="js/util.js"></script>
+
+<script src="js/admin/fileinput.js"></script>
+<script src="js/admin/zh.js"></script>
+
+<script type="text/javascript">
+    $("#downloadDepartment").click(function () {
+        var $eleFormDepartment = $("<form method='get'></form>");
+
+
+        $eleFormDepartment.attr("action",config.download_url + "/department.xlsx");
+
+        $(document.body).append($eleFormDepartment);
+
+        //提交表单，实现下载
+        $eleFormDepartment.submit();
+    })
+
+</script>
+
+<script type="text/javascript">
+    $(function() {
+        $("#excelFile3").fileinput({
+            uploadUrl: config.base_url+ "Importxls?token="+checktoken()+"&type=department",//上传的地址
+            language: "zh",
+            showCaption: true,              //是否显示标题
+            uploadAsync: false,
+            uploadClass: "btn btn-success",//设置上传按钮样式
+
+            showUpload: true,               //是否显示上传按钮
+            showRemove: true,               //是否显示移除按钮
+            showPreview: true,                //是否显示预览按钮
+            allowedFileExtensions: ["xls", "xlsx"], //接收的文件后缀
+            dropZoneTitle: "请通过拖拽excel文件放到这里",
+            uploadExtraData: {  //上传的时候，增加的附加参数
+                // token:checktoken(),
+                // type:"doctor"
+                // folder: '数据导入文件', guid: $("#AttachGUID").val()
+            }
+        })
+    });
+</script>

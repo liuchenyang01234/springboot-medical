@@ -1,0 +1,226 @@
+<br>
+<div class="outlet">
+    <!-- Start .outlet -->
+    <!-- Page start here ( usual with .row ) -->
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <!-- col-lg-4 start here -->
+            <div class="panel panel-default plain profile-widget" id="spr_0">
+                <!-- Start .panel -->
+                <div class="panel-heading white-bg pl0 pr0">
+                    <img class="profile-image img-responsive" src="img/profile-cover.jpg" alt="profile cover">
+                </div>
+                <div class="panel-body">
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <!--<div class="profile-avatar">-->
+                            <!--<img class="img-responsive" src="" id="profile-avatar">-->
+                        <!--</div>-->
+                        <dd class="mod-account-avatar profile-avatar">
+                            <a class="account-avatar-panel" target="_blank">
+                                <img class="account-avatar-show img-responsive" id="profile-avatar" width="150" height="150" src="" data-target="#avatar-modal" data-toggle="modal">
+                                <span class="account-avatar-edit">修改头像</span>
+                            </a>
+                        </dd>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-12">
+                        <div class="profile-name">
+                            <span id="profile-name"></span>
+                             <span class="label label-success" id="profile-type">管理员</span>
+                        </div>
+
+                        <div class="profile-quote">
+                            <p>欢迎登录个人中心！</p>
+                            <p>注册时间：<span id="profile-create-time"></span></p>
+                            <p>最后登录：<span id="profile-last-login"></span></p>
+
+                            <button class="btn btn-warning" data-toggle="modal" data-target="#change-phone-modal">修改手机</button>
+                            <button class="btn btn-success" data-toggle="modal" data-target="#change-pwd-modal">修改密码</button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="panel-footer white-bg">
+                    <ul class="profile-info">
+                        <li><i class="ec-mobile"></i> <span id="profile-phone"></span> </li>
+                        <li><i class="ec-location"></i> 南京鼓楼医院</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- End .panel -->
+        </div>
+        <!-- col-lg-4 end here -->
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <!-- col-lg-4 start here -->
+            <div class="panel panel-default plain" id="spr_1">
+                <!-- Start .panel -->
+                <div class="panel-heading white-bg">
+                    <h4 class="panel-title"><i class="ec-user"></i> 系统信息</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="col-lg-6 col-md-3 col-sm-6 col-xs-12">
+                        <div class="carousel-tile carousel slide">
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <div class="tile blue">
+                                        <div class="tile-icon">
+                                            <i class="st-chat s64"></i>
+                                        </div>
+                                        <div class="tile-content">
+                                            <div class="number countTo" data-from="0" data-to="24" id="new_orders">0</div>
+                                            <h3>昨日新增订单</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Carousel -->
+                    </div>
+                    <div class="col-lg-6 col-md-3 col-sm-6 col-xs-12">
+                        <div class="carousel-tile carousel slide">
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <div class="tile orange">
+                                        <!-- tile start here -->
+                                        <div class="tile-icon">
+                                            <i class="ec-cog s64"></i>
+                                        </div>
+                                        <div class="tile-content">
+                                            <div class="number countTo" data-from="0" data-to="5" id="pay_value">0</div>
+                                            <h3>昨日支付金额</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Carousel -->
+                    </div>
+
+                    <div class="col-lg-12 col-md-6 sortable-layout ui-sortable">
+                        <div class="panel panel-default plain toggle">
+                            <!-- Start .panel -->
+                            <div class="panel-heading white-bg">
+                                <h4 class="panel-title"><i class="im-bars"></i>近7天订单数量</h4>
+                            </div>
+                            <div class="panel-body white-bg">
+                                <canvas id="order_chart" ></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <!-- End .panel -->
+        </div>
+        <!-- col-lg-4 end here -->
+    </div>
+    <!-- Page End here -->
+</div>
+
+
+<div class="modal fade in" id="change-phone-modal" aria-hidden="true" aria-labelledby="change-phone-label" role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal" type="button">&times;</button>
+                <h4 class="modal-title">修改绑定手机</h4>
+            </div>
+            <div class="modal-body">
+
+                <div id="alertmessage3"></div>
+
+                <div class="input-group marginH">
+                    <span class="input-group-addon" >当前手机</span>
+                    <input id="old_phone" type="text" class="form-control" placeholder="请输入当前绑定的手机号">
+                </div>
+
+                <br>
+
+                <div class="input-group marginH">
+                    <span class="input-group-addon" >新的手机</span>
+                    <input id="new_phone" type="text" class="form-control" placeholder="请输入新的手机号">
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="input-group marginH" id="infoCode">
+                            <span class="input-group-addon">短信验证码</span>
+                            <input id="code" type="text" class="form-control" placeholder="手机验证码" >
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" id="getInfoCode" class="btn btn-info" onclick="send()">点击获取</button>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button id="submit_phone" type="button" class="btn btn-success" onclick="edit_phone()">确定</button>
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade in" id="change-pwd-modal" aria-hidden="true" aria-labelledby="change-pwd-label" role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal" type="button">&times;</button>
+                <h4 class="modal-title">修改密码</h4>
+            </div>
+            <div class="modal-body">
+
+                <div id="alertmessage2"></div>
+
+                <div class="input-group marginH">
+                    <span class="input-group-addon" >请输入原密码</span>
+                    <input type="text" id="password" class="form-control" />
+                </div>
+                <br>
+
+                <div class="input-group marginH" >
+                    <span class="input-group-addon" >请输入新密码</span>
+                    <input type="text" id="newpwd1" class="form-control"/>
+                </div>
+                <br>
+                <div class="input-group marginH">
+                    <span class="input-group-addon" >请重新输入新密码</span>
+                    <input type="text" id="newpwd2" class="form-control" />
+                </div>
+
+
+                <br>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button id="submit_pwd" type="button" class="btn btn-success" onclick="change_pwd()">确定</button>
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="js/lib/bootbox.min.js"></script>
+<script src="js/lib/Chart.js"></script>
+<script src="js/util.js"></script>
+<script src="js/time.js"></script>
+<script src="js/account.js"></script>
+<script src="js/admin/orderstat.js"></script>
+<script>
+    //加载近7日订单数据
+    var ctx = document.getElementById("order_chart").getContext("2d");
+    window.onload = init_order_data(1,ctx);
+</script>

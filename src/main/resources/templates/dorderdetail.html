@@ -1,0 +1,219 @@
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>订单详情</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/info.css"/>
+
+    <link rel="stylesheet" href="css/reservation/process.css"/>
+
+
+
+</head>
+
+<header>
+    <img src="img/logo.png" class="logo"/>
+    <!--<a href="#" class="logo"></a>-->
+    <div class="desc">个人中心</div>
+    <a id="hhome" href="#">网站首页</a>
+    <a id="hname" href="#">退出登录</a>
+
+</header>
+<body>
+
+<div class="container">
+    <div class="order-bor " id="outer" style="">
+        <!-- 订单详情 -->
+        <div class="order-con">
+            <h2 class="or-t"> 订单详情 &nbsp;&nbsp;<a href="doctor/doctorinfo.html" class="fn-right">&lt; 返回我的订单</a></h2>
+            <div class="order-li">当前订单状态：<span class="c1" id="status"></span>
+                <div class="fn-right">
+                    <button class="btn btn-info" disabled="disabled" id="btn_advice" data-toggle="modal" data-target="#adviceModal">提交建议</button>
+                    <button class="btn btn-success" disabled="disabled" id="btn_evaluation" data-toggle="modal" data-target="#evaluation-modal" onclick="load_eval()">查看评价</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="order-tit"><span class="fn-right" id="order_id"></span>订单信息</div>
+        <div class="fn-clear order-con">
+            <table width="100%" border="0" class="order-tab">
+                <tbody>
+                <tr>
+                    <td width="20%" align="right">就&nbsp;&nbsp;诊&nbsp;人：</td>
+                    <td width="30%" id="username"></td>
+                    <td width="20%" align="right">下单时间：</td>
+                    <td width="30%"><b id="create_time"></b></td>
+                </tr>
+                <tr>
+                    <td align="right">患者性别：</td>
+                    <td id="sex"></td>
+                    <td align="right">预约时间：</td>
+                    <td><b class="c2" id="appointment_time"></b></td>
+
+                </tr>
+                <tr>
+                    <td align="right">出生日期：</td>
+                    <td id="birth"></td>
+                    <td align="right">订单费用：</td>
+                    <td><b id="price" class="c3"></b></td>
+                </tr>
+                <!--<tr>-->
+                <!--<td align="right">门诊类型：</td>-->
+                <!--<td>{type}</td>-->
+                <!--<td align="right">费用：</td>-->
+                <!--<td><b class="c3">{price} 元</b></td>-->
+                <!--</tr>-->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="order-tit">疾病信息</div>
+            <div class="fn-clear order-con">
+                <div id="disease_input"></div>
+            </div>
+
+        <div class="order-tit">医生建议</div>
+            <div class="fn-clear order-con">
+                <div id="advice"></div>
+            </div>
+
+        <div class="order-tit">病史记录</div>
+        <div id="caseList">
+            <table id="doc_order"></table>
+        </div>
+
+    </div>
+</div>
+</div>
+
+<div class="modal fade" id="case-images-modal" aria-hidden="true" aria-labelledby="case-images-label" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form class="avatar-form" enctype="multipart/form-data" method="post">
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal" type="button">&times;</button>
+                    <h4 class="modal-title">查看病历</h4>
+                </div>
+                <div class="modal-body" id="case-detail">
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="adviceModal" tabindex="-1" role="dialog" aria-labelledby="adviceModalLabel">
+    <div class="modal-dialog" style="margin-top: 200px ;" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">提交咨询建议</h4>
+            </div>
+            <div class="modal-body">
+
+                <div id="alertmessage"></div>
+
+                <div id="content">
+                    <textarea id="text_advice" class="form-control" style="height:200px"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" id="ok" onclick="submit_advice()" class="btn btn-primary">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="evaluation-modal" aria-hidden="true" aria-labelledby="evaluation-label" role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="avatar-form" enctype="multipart/form-data" method="post">
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal" type="button">&times;</button>
+                    <h4 class="modal-title">查看评价</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">评价信息</h3>
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <span class="glyphicon glyphicon-bullhorn sameline"></span>
+                                <b>总体评分：</b>
+                                <div class="sameline" id="score"></div></li>
+                            <li class="list-group-item">
+                                <span class="glyphicon glyphicon-user sameline"></span>
+                                <b>评价内容：</b>
+                                <div class="sameline" id="comment"></div></li>
+                            <li class="list-group-item">
+                                <span class="glyphicon glyphicon-user sameline"></span>
+                                <b>评价时间：</b>
+                                <div class="sameline" id="comment_time"></div></li>
+                        </ul>
+                    </div>
+
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">回复记录</h3>
+                        </div>
+
+                        <div id="list-reply">
+                            <table id="reply"></table>
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#reply-modal">回复留言</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="reply-modal" tabindex="-1" role="dialog" aria-labelledby="replyModalLabel">
+    <div class="modal-dialog" style="margin-top: 200px ;" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">回复患者评价</h4>
+            </div>
+            <div class="modal-body">
+
+                <div id="alertmessage2"></div>
+
+                <div id="content2">
+                    <textarea id="text_reply" class="form-control" style="height:200px"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" id="bOK" onclick="reply()" class="btn btn-primary">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<script src="js/util.js"></script>
+<script src="js/lib/jquery-3.2.1.min.js"></script>
+<script src="js/lib/bootstrap.min.js "></script>
+<script src="js/caseInfo/bootstrap-table.js"></script>                       <!--table插件-->
+<script src="js/caseInfo/bootstrap-table-zh-CN.js"></script>                 <!--中文table-->
+<script src="js/order/doc_order_detail.js"></script>
+
+
+<!--<script src="js/order/loadorder.js"></script>-->
+</html>

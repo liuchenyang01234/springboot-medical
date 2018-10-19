@@ -1,0 +1,77 @@
+<link rel="stylesheet" href="css/bootstrap-table.css">
+
+<br>
+<div class="outlet">
+    <!-- Start .outlet -->
+    <!-- Page start here ( usual with .row ) -->
+    <div class="row">
+        <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
+            <!-- col-lg-4 start here -->
+            <div class="panel panel-default plain" id="spr_1">
+                <!-- Start .panel -->
+                <div class="panel-heading white-bg">
+                    <h4 class="panel-title"><i class="ec-user"></i> 科室数据</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="alertmessage">
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            按月查询各科室的订单数据和所占比例。数据每月1日自动更新。
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 sortable-layout ui-sortable">
+                        <div class="panel panel-default plain toggle">
+                            <!-- Start .panel -->
+                            <div class="panel-heading white-bg">
+                                <h4 class="panel-title"><i class="im-bars"></i>按月查询</h4>
+                            </div>
+                            <div class="panel-body white-bg" id="container_7">
+                                <table class="table table-hover">
+
+                                    <tbody>
+                                    <tr><td><b>选择月份：</b><br>按月查询各科室订单数据</td>
+                                        <td>
+                                            <select id="month" class="form-control">
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="button" class="btn btn-success" onclick="init_dep_data()" value="查询">
+                                        </td></tr>
+
+                                    </tbody></table>
+                                <table id="stat_dep_table"></table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 sortable-layout ui-sortable">
+                        <div class="panel panel-default plain toggle">
+                            <!-- Start .panel -->
+                            <div class="panel-heading white-bg">
+                                <h4 class="panel-title"><i class="im-bars"></i>订单比例</h4>
+                            </div>
+                            <div class="panel-body white-bg" id="container_30">
+                                <button class="btn btn-info" onclick="switch_data(1)">订单数量</button>
+                                <button class="btn btn-warning" onclick="switch_data(2)">完成数量</button>
+                                <button class="btn btn-danger" onclick="switch_data(3)">投诉数量</button>
+                                <div id="container">
+                                    <canvas id="chart" ></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- End .panel -->
+        </div>
+        <!-- col-lg-4 end here -->
+    </div>
+    <!-- Page End here -->
+</div>
+
+<script src="js/caseInfo/bootstrap-table.js"></script>                       <!--table插件-->
+<script src="js/caseInfo/bootstrap-table-zh-CN.js"></script>                 <!--中文table-->
+<script src="js/lib/bootbox.min.js"></script>
+<script src="js/lib/Chart.js"></script>
+<script src="js/util.js"></script>
+<script src="js/admin/depstat.js"></script>

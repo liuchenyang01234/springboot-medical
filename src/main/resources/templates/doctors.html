@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>医生介绍</title>
+
+    <link href="css/reservation/basic.css" type="text/css" rel="stylesheet">
+    <link href="css/reservation/xz_ks.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap-table.css">
+
+</head>
+<body>
+
+<div class="middle yy_ys">
+
+    <div class="hotmian">
+    <div class="yy_til">
+        <h2>南京鼓楼医院</h2>
+        <em>三级甲等</em>
+    </div>
+    <div class="yy_js clearfix" id="description">
+        <!--填充医生资料-->
+
+    </div>
+
+    <div class="xx_til clearfix">
+        <h3>预约排班</h3>
+        <span></span>
+    </div>
+    <div class="yy_paiban">
+        <table id="maintable" width="100%">
+            <thead id="thead">
+
+            </thead>
+
+            <tbody id="tbody">
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="xx_til clearfix">
+        <h3>医生评价</h3>
+        <span></span>
+    </div>
+    <div id="list-evaluation">
+        <table id="evaluation"></table>
+    </div>
+</div>
+
+</div>
+
+</body>
+<!--医生介绍替换模板-->
+<script type="text/html" id="doctor_description">
+    <span>
+            <b class="ys_js">
+                <img src="{img}" width="120" height="160" alt="">
+            </b>
+    </span>
+    <div class="zrys">
+        <p>
+            <strong>{doctor_name}</strong><i>{department}　{doctor_type}</i>
+        </p>
+        <dl>
+            <dt>简介：</dt>
+            <dd>{description}</dd>
+        </dl>
+    </div>
+</script>
+
+<script src="js/util.js"></script>
+<script src="js/lib/jquery-3.2.1.min.js"></script>
+<script src="js/doctor/load_schedule.js"></script>
+<script src="js/caseInfo/bootstrap-table.js"></script>                       <!--table插件-->
+<script src="js/caseInfo/bootstrap-table-zh-CN.js"></script>                 <!--中文table-->
+</html>

@@ -1,0 +1,112 @@
+<link rel="stylesheet" href="css/bootstrap-table.css">
+
+<br>
+<div class="outlet">
+    <!-- Start .outlet -->
+    <!-- Page start here ( usual with .row ) -->
+    <div class="row">
+        <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
+            <!-- col-lg-4 start here -->
+            <div class="panel panel-default plain" id="spr_1">
+                <!-- Start .panel -->
+                <div class="panel-heading white-bg">
+                    <h4 class="panel-title"><i class="ec-user"></i> 医生数据</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="alertmessage">
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            查询上月医生的各项数据排行，或根据姓名查询医生的具体数据。数据每月1日自动更新。
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 sortable-layout ui-sortable">
+                        <div class="panel panel-default plain toggle">
+                            <!-- Start .panel -->
+                            <div class="panel-heading white-bg">
+                                <h4 class="panel-title"><i class="im-bars"></i>上月医生排行</h4>
+                            </div>
+                            <div class="panel-body white-bg" id="container_7">
+                                <table class="table table-hover">
+
+                                    <tbody>
+                                    <tr><td><b>选择排序属性：</b><br>根据某项属性对医生数据排序</td>
+                                        <td>
+                                            <select id="type" class="form-control">
+                                                <option value="new_orders">订单数量</option>
+                                                <option value="complete_orders">完成订单数量</option>
+                                                <option value="report_orders">投诉数量</option>
+                                                <option value="score">评价</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="button" class="btn btn-success" onclick="init_doctor_rank()" value="查询">
+                                        </td></tr>
+
+                                    </tbody></table>
+                                <table id="stat_rank_table"></table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 sortable-layout ui-sortable">
+                        <div class="panel panel-default plain toggle">
+                            <!-- Start .panel -->
+                            <div class="panel-heading white-bg">
+                                <h4 class="panel-title"><i class="im-bars"></i>查询医生</h4>
+                            </div>
+                            <div class="panel-body white-bg" id="container_30">
+                                <table class="table table-hover">
+
+                                    <tbody>
+                                    <tr><td><b>医生姓名：</b><br>根据姓名查找医生数据</td>
+                                        <td>
+                                            <input type="text" id="search_name" class="form-control">
+                                        </td>
+                                        <td>
+                                            <input type="button" class="btn btn-primary" onclick="init_doctor_list()" value="查询">
+                                        </td></tr>
+
+                                    </tbody></table>
+
+                                <table id="stat_doctor_table"></table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-6 sortable-layout ui-sortable">
+                        <div class="panel panel-default plain toggle">
+                            <!-- Start .panel -->
+                            <div class="panel-heading white-bg">
+                                <h4 class="panel-title"><i class="im-bars"></i>医生详细数据</h4>
+                            </div>
+                            <div class="panel-body white-bg">
+                                <div class="col-lg-6 col-md-6 sortable-layout ui-sortable">
+                                    <table id="stat_month_table"></table>
+                                </div>
+                                <div class="col-lg-6 col-md-6 sortable-layout ui-sortable">
+                                    <button class="btn btn-info" onclick="switch_data(1)">订单数量</button>
+                                    <button class="btn btn-warning" onclick="switch_data(2)">完成数量</button>
+                                    <button class="btn btn-danger" onclick="switch_data(3)">投诉数量</button>
+                                    <button class="btn btn-success" onclick="switch_data(4)">评价</button>
+                                    <div id="container">
+                                        <canvas id="chart" ></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- End .panel -->
+        </div>
+        <!-- col-lg-4 end here -->
+    </div>
+    <!-- Page End here -->
+</div>
+
+<script src="js/caseInfo/bootstrap-table.js"></script>                       <!--table插件-->
+<script src="js/caseInfo/bootstrap-table-zh-CN.js"></script>                 <!--中文table-->
+<script src="js/lib/bootbox.min.js"></script>
+<script src="js/lib/Chart.js"></script>
+<script src="js/util.js"></script>
+<script src="js/admin/docstat.js"></script>

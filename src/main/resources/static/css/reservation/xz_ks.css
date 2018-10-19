@@ -1,0 +1,1136 @@
+@charset "utf-8";
+/* CSS Document */
+.middle {
+	width: 100%;
+	background: #faf8f8 url(../../img/bg.png) repeat-x 0 -470px;
+	padding-top: 5px;
+}
+
+.yy_ys {
+	width: 1004px;
+	overflow: hidden;
+	margin: 0 auto;
+	padding-bottom: 20px;
+}
+
+.section {
+	color: #2e2e2e;
+	margin: 10px 0;
+}
+
+.section a {
+	color: #2cb1d2;
+}
+
+.erji_nav {
+	width: 10004px;
+	border-bottom: 1px solid #5ebed6;
+}
+
+.erji_nav li {
+	float: left;
+}
+
+.erji_nav li a {
+	font-size: 16px;
+	margin-left: 15px;
+	padding: 0 30px;
+	line-height: 32px;
+	font-weight: 600;
+	display: inline-block;
+}
+
+.erji_nav li.yes a {
+	background: #5ebed6;
+	color: #fff;
+	border: 1px solid #5ebed6;
+	border-bottom: none;
+}
+
+.erji_nav li.not a {
+	background: #f6f5f5;
+	color: #2cb1d2;
+	border: 1px solid #dfdfdf;
+	cursor: pointer;
+	border-bottom: none;
+}
+
+.search_num {
+	padding: 5px 0 5px 15px;
+	line-height: 30px;
+	font-size: 14px;
+	color: #515151;
+}
+
+.search_num strong {
+	color: #2cb1d2;
+	margin: -1px 5px 0 0;
+	font-size: 20px;
+	float: left;
+}
+
+.search_num span {
+	color: #82ba2a;
+	padding: 0 3px;
+}
+
+.hotmian {
+	width: 1002px;
+	overflow: hidden;
+	border: 1px solid #c9c7c8;
+	background: #fff;
+	padding-bottom: 20px;
+	position: relative;
+}
+
+.xzyiyuan {
+	height: 40px;
+	_height: 32px;
+	line-height: 40px;
+	_padding-top: 8px;
+	background: #f4f4f4;
+	font-size: 14px;
+	padding-left: 20px;
+	color: #333;
+}
+
+.xzyiyuan input {
+	height: 21px;
+	line-height: 21px;
+	color: #c2c1c1;
+	padding-left: 5px;
+	margin: 0 5px;
+}
+
+.xzyiyuan input.chbox {
+	width: 150px;
+	margin-right: 30px;
+	border: 1px solid #c2c1c1;
+}
+
+.yy_list {
+	width: 952px;
+	overflow: hidden;
+	margin: 0 15px;
+	font-size: 13px;
+	_font-size: 12px;
+	border-bottom: 1px solid #dddede;
+	padding: 10px;
+	line-height: 23px;
+	float: left;
+	display: inline;
+}
+
+.yy_list dt {
+	width: 65px;
+	overflow: hidden;
+	float: left;
+}
+
+.yy_list dd {
+	width: 885px;
+	float: left;
+	overflow: hidden;
+}
+
+.yy_list dd em {
+	width: 28px;
+	overflow: hidden;
+	background: #7fcee2;
+	color: #fff;
+	float: left;
+	padding: 0 10px;
+	cursor: pointer;
+}
+
+.yy_list dd span.big {
+	width: 830px;
+	overflow: hidden;
+	float: left;
+	margin-left: 5px;
+}
+
+.yy_list dd span.small {
+	width: 130px;
+	overflow: hidden;
+	float: left;
+	height: 23px;
+}
+
+.yy_list dd span.small_yy {
+	width: 160px;
+}
+
+.yy_list dd a {
+	display: inline-block;
+	color: #555;
+	padding: 0 10px;
+}
+
+.yy_list dd a:hover {
+	background: #7fcee2;
+	color: #fff;
+}
+
+.py_list {
+	width: 952px;
+	overflow: hidden;
+	margin: 0 15px;
+	font-size: 13px;
+	_font-size: 12px;
+	border-bottom: 1px solid #dddede;
+	padding: 10px;
+	line-height: 23px;
+	float: left;
+	display: inline;
+}
+
+.py_list dt {
+	width: 65px;
+	overflow: hidden;
+	float: left;
+}
+
+.py_list dd {
+	width: 885px;
+	float: left;
+	overflow: hidden;
+}
+
+.py_list dd em {
+	width: 28px;
+	overflow: hidden;
+	background: #7fcee2;
+	color: #fff;
+	float: left;
+	padding: 0 10px;
+	cursor: pointer;
+}
+
+.py_list dd span.big {
+	width: 860px;
+	overflow: hidden;
+	float: left;
+	margin-left: 5px;
+}
+
+.py_list dd span.small {
+	width: 30px;
+	overflow: hidden;
+	float: left;
+}
+
+.py_list dd a {
+	display: inline-block;
+	color: #555;
+	padding: 0 10px;
+}
+
+.py_list dd a:hover {
+	background: #7fcee2;
+	color: #fff;
+}
+
+.noborder {
+	border: none;
+}
+
+.tab {
+	width: 1002px;
+}
+
+.tab th {
+	background: #75b9e6;
+	height: 40px;
+	color: #fff;
+}
+
+.tab th i {
+	font-size: 16px;
+}
+
+.tab th p.click {
+	background: #5dafc4;
+	padding: 5px 0;
+}
+
+.tab th span {
+	display: block;
+}
+
+.turn_fl, .turn_fr, .page_fl, .page_fr, .an_fl, .an_fr {
+	width: 21px;
+	height: 21px;
+	background: url(../../img/tb.png) no-repeat -206px -51px;
+	display: inline-block;
+}
+
+.turn_fr {
+	background-position: -229px -51px;
+}
+
+.page_fl {
+	background-position: -171px -111px;
+}
+
+.page_fr {
+	background-position: -196px -111px;
+}
+
+.an_fl {
+	background-position: -253px -51px;
+}
+
+.an_fr {
+	background-position: -277px -51px;
+}
+
+.tab td {
+	color: #8b8a8a;
+	line-height: 20px;
+	height: 65px;
+	border-bottom: 1px dashed #b4cdd3;
+}
+
+.ver_top {
+	vertical-align: text-top;
+	padding: 15px 0 0 15px;
+}
+
+#float {
+	background: #f00;
+	width: 1000px;
+	height: 34px;
+	position: absolute;
+	top: 0
+}
+
+#box {
+	position: relative;
+}
+
+.tab td.yuyue_time {
+	background: #f4fbe8;
+	color: #7fab47;
+	border-right: 1px solid #fff;
+}
+
+.tab td.bor_botm {
+	border-bottom: 1px solid #fafef4;
+}
+
+.tab td.tab_one {
+	padding: 15px 0 5px 15px;
+	border-bottom: 1px dashed #b4cdd3;
+}
+
+.tab td img {
+	border: 1px solid #dedcdd;
+}
+
+.tab td p.ks_yy {
+	padding: 8px 0;
+}
+
+.collection {
+	display: block;
+	background: url(../../img/tb.png) no-repeat -286px -74px;
+	color: #89b157;
+	padding-left: 15px;
+	margin: 5px 0;
+}
+
+.ys_name, .ks_name {
+	color: #2cb1d2;
+	font-size: 16px;
+}
+
+.ks_name {
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.tab td i {
+	margin-left: 10px;
+	color: #333434;
+}
+
+.tab td em a {
+	color: #f99c09;
+}
+
+.tab td p {
+	padding: 5px 0;
+}
+
+.tab td p a {
+	font-weight: bold;
+	font-size: 13px;
+	color: #888;
+}
+
+.tab td p a:hover, .tab td em a:hover {
+	color: #f80;
+}
+
+.tab_data {
+	background: #e5f3f7;
+	border-left: 1px solid #f2be50;
+	color: #4e96a9;
+	font-size: 14px;
+	
+}
+
+.yiguoqi {
+	background: #f2f2f1;
+	display: block;
+	padding: 10px 0 10px;
+	margin-left: 2px;
+}
+
+.yuyue_time {
+	background: #f4fbe8;
+	color: #7fab47;
+	display: block;
+	padding: 10px 0 10px;
+	margin-left: 2px;
+}
+
+.yuyue_time a {
+	color: #7fab47;
+}
+
+.yuyue_time a:VISITED {
+	color: #7fab47;
+}
+
+.yuyue_tingzhen, .yuyue_yiman {
+	background: #f4fbe8;
+	color: red;
+	display: block;
+	padding: 10px 0 10px;
+	margin-left: 2px;
+}
+
+.yuyue_time_sp {
+	color: #7fab47;
+	display: block;
+	margin-left: 2px;
+}
+
+.yuyue_time_sp a {
+	color: #7fab47;
+}
+
+.yuyue_time_sp a:VISITED {
+	color: #7fab47;
+}
+
+#dislist {
+	padding-left: 60px;
+	padding-top: 5px;
+}
+
+.right_nav {
+	position: fixed;
+	_position: absolute;
+	_top: 313px;
+	overflow: hidden;
+	z-index: 10;
+}
+/*医院介绍*/
+.yy_til {
+	background: #7fcee2;
+	height: 40px;
+	line-height: 40px;
+	overflow: hidden;
+}
+
+.yy_til h2 {
+	float: left;
+	color: #fff;
+	font-size: 18px;
+	padding-left: 20px;
+}
+
+.yy_til h2 b {
+	font-size: 20px;
+}
+
+.yy_til em {
+	width: 59px;
+	height: 19px;
+	line-height: 19px;
+	background: url(../../img/tb.png) no-repeat -107px -112px;
+	color: #eb830c;
+	margin: 10px 0 0 10px;
+	font-weight: bold;
+	float: left;
+	text-align: center;
+}
+
+.yy_js {
+	padding: 30px 30px 15px;
+	border-bottom: 1px dashed #e5e7e7;
+	font-family: Tahoma, Geneva, sans-serif;
+}
+
+.yy_js span {
+	float: left;
+	margin-right: 25px;
+}
+
+.yy_js b {
+	padding: 10px;
+	border: 1px solid #c0c2c2;
+	display: block;
+	width: 304px;
+	height: 192px;
+}
+
+.yy_js b.ys_js {
+	width: 120px;
+	height: 160px;
+}
+
+.yy_js b.ks_js {
+	width: 224px;
+	height: 166px;
+}
+
+.yy_js a.collection {
+	line-height: 22px;
+	margin: 10px 0 0 40px;
+}
+
+.yy_js a.ks_sc {
+	margin: 10px 0 0 90px;
+}
+
+.yy_js p.jianjie {
+	text-indent: 2em;
+	line-height: 25px;
+	padding: 15px 0 10px;
+	font-size: 14px;
+	color: #787878;
+}
+
+.yy_js p.jianjie em {
+	color: #9d9c9c;
+	font-weight: 600;
+}
+
+.yy_js dl {
+	line-height: 28px;
+	font-size: 14px;
+}
+
+.yy_js dl dt {
+	color: #a3a1a1;
+	float: left;
+	font-weight: 600;
+}
+
+.yy_js dl dd, .yy_js dl dd a {
+	color: #787878;
+}
+
+.yy_js dl dd a.shoucang {
+	background: #D0E9A9;
+	color: #70A41E;
+	font-weight: 600;
+	font-size: 13px;
+	padding: 0 5px;
+	text-align: center;
+	border-radius: 3px;
+	line-height: 28px;
+	display: inline-block;
+	margin: 22px 20px 0 0;
+	width: 80px;
+}
+
+.yy_js dl dd a.shoucang:hover {
+	background: #89c032;
+	color: #fff;
+}
+
+.yy_js dl dd a.s1 {
+	color: #51adc4;
+}
+
+.yy_js dl dd a:hover {
+	color: #f60;
+}
+
+.wp {
+	overflow: hidden;
+}
+
+#read-more {
+	line-height: 15px;
+}
+
+#read-more a {
+	color: #2CB1D2;
+	padding-left: 42px;
+}
+
+.xx_til {
+	border-bottom: 1px solid #62a0ae;
+	margin: 20px 1px 0;
+}
+
+.xx_til h3 {
+	font-size: 16px;
+	color: #fff;
+	background: url(../../img/btimg.jpg) no-repeat;
+	line-height: 37px;
+	float: left;
+	padding: 0 15px;
+}
+
+.xx_til span {
+	width: 41px;
+	height: 37px;
+	background: url(../../img/btimg.jpg) no-repeat -176px 0;
+	float: left;
+}
+
+.xx_list_fl {
+	width: 530px;
+	padding: 20px 10px 20px 30px;
+	border: 1px solid #dfddde;
+	float: left;
+	color: #787878;
+	line-height: 30px;
+	font-size: 14px;
+	margin: 10px;
+}
+
+.xx_list_fr {
+	width: 377px;
+	text-align: center;
+	border: 1px solid #dfddde;
+	float: left;
+	padding: 10px;
+	margin-top: 10px;
+}
+
+.xx_list_fr a {
+	display: inline-block;
+	padding: 15px 0 3px;
+	color: #2cb1d2;
+}
+
+.kfyy {
+	border-bottom: 1px dashed #e5e7e7;
+	padding: 10px;
+	line-height: 26px;
+	font-size: 14px;
+}
+
+.kfyy dt {
+	float: left;
+	width: 65px;
+	padding: 0 5px;
+	text-align: center;
+	margin-right: 5px;
+	color: #555;
+}
+
+.kfyy dd {
+	width: 900px;
+	float: left;
+}
+
+.kfyy dd span {
+	width: 170px;
+	float: left;
+}
+
+.kfyy dd a {
+	color: #58bdd8;
+	padding: 0 5px;
+	display: inline-block;
+}
+
+.kfyy dd a:hover {
+	color: #fff;
+	background: #58bdd8;
+}
+
+#demo table tr td {
+	color: #fff;
+	padding-right: 20px;
+}
+
+#demo table tr td a {
+	color: #fff
+}
+
+#demo table tr td a:HOVER {
+	text-decoration: underline;
+}
+
+#demo table tr td a:VISITED {
+	color: #fff
+}
+
+/*医生介绍*/
+.zrys {
+	margin-top: 10px;
+}
+
+.zrys p strong {
+	font-size: 24px;
+	color: #2cb1d2;
+}
+
+.zrys p i {
+	font-size: 18px;
+	color: #0e0e0e;
+	margin-left: 25px;
+}
+
+.zrys p em {
+	line-height: 26px;
+	color: #eb8e21;
+	background: #f6dca0;
+	display: inline-block;
+	margin: 15px 10px 0 0;
+	padding: 0 20px;
+	border-radius: 3px;
+}
+
+.yy_paiban {
+	padding: 15px;
+}
+
+.yy_paiban p {
+	color: #6c6d6d;
+	line-height: 35px;
+	padding-left: 15px;
+}
+
+.yy_paiban table {
+	border: 1px solid #dfddde;
+}
+
+.yy_paiban table th {
+	font-weight: normal;
+	height: 70px;
+	border-bottom: 1px solid #d7d9da;
+	border-right: 1px solid #d7d9da;
+	line-height: 25px;
+}
+
+.yy_paiban table th b {
+	font-size: 14px;
+	display: block;
+	font-weight: normal;
+}
+
+.yy_paiban table th em {
+	font-size: 16px;
+}
+
+.yellow {
+	color: #eaa726;
+}
+
+.blue {
+	color: #7caf36;
+}
+
+.yy_paiban table td {
+	border-bottom: 1px solid #d7d9da;
+	border-right: 1px solid #d7d9da;
+	height: 98px;
+}
+
+.tomr {
+	background: #e5f3f7;
+	text-align: center;
+	color: #21839b;
+	font-size: 16px;
+}
+
+.yy_paiban table td.y {
+	background: #ecf7db;
+	text-align: center;
+}
+
+.yy_paiban table td.y a {
+	color: #EAA726;
+	font-size: 14px;
+	font-weight: 600;
+	display: block;
+	line-height: 22px;
+}
+
+.yy_paiban table td.y a.yuyue {
+	color: #70a41e;
+}
+
+.yy_paiban table td.nbor {
+	border-bottom: none;
+}
+
+.doc_yiman, .doc_tingzhen {
+	display: inline-block;
+	width: 100%;
+	height: 98px;
+	background: #ecf7db;
+	color: red;
+	line-height: 98px;
+	vertical-align: middle;
+	font-weight: 600;
+	text-align: center;
+	font-size: 14px;
+}
+
+.doc_yiguoqi {
+	display: inline-block;
+	width: 100%;
+	height: 98px;
+	background: #f2f2f1;
+	color: #8b8a8a;
+	line-height: 98px;
+	vertical-align: middle;
+	font-weight: 600;
+	text-align: center;
+	font-size: 14px;
+}
+
+.doc_yuyue_time {
+	display: inline-block;
+	width: 100%;
+	height: 98px;
+	background: #ecf7db;
+	font-weight: 600;
+	text-align: center;
+	font-size: 14px;
+	line-height: 98px;
+	vertical-align: middle;
+}
+
+.doc_yuyue_time a {
+	color: #70a41e;
+}
+
+.doc_duty_empty {
+	display: inline-block;
+	width: 100%;
+	height: 98px;
+	background: #ffffff;
+	font-weight: 600;
+	text-align: center;
+	font-size: 14px;
+	line-height: 98px;
+	vertical-align: middle;
+}
+
+.doc_duty_empty a {
+	color: #CCCCCC;
+	/*font-size: 12px;*/
+}
+
+.doc_yuyue_time a:VISITED {
+	color: #70a41e;
+}
+
+.doc_yuyue_time_sp {
+	display: inline-block;
+	width: 100%;
+	height: 98px;
+	background: #ecf7db;
+	font-weight: 600;
+	text-align: center;
+	font-size: 14px;
+	line-height: 98px;
+	vertical-align: middle;
+}
+
+.doc_yuyue_time_sp a {
+	display: block;
+	height: 22px;
+	margin: auto 0px;
+	color: #EAA726;
+}
+
+.doc_yuyue_time_sp a:VISITED {
+	color: #EAA726;
+}
+/*科室介绍*/
+.zj_list {
+	border-bottom: 1px dashed #e2e2e2;
+}
+
+.zj_list dl {
+	padding: 15px 25px;
+	float: left;
+}
+
+.zj_list dl dt {
+	width: 74px;
+	height: 82px;
+	overflow: hidden;
+	float: left;
+}
+
+.zj_list dl dd {
+	float: left;
+	margin-left: 15px;
+}
+
+.zj_list dl dd a {
+	font-size: 14px;
+	color: #68bab8;
+	font-weight: 600;
+}
+
+.zj_list dl dd a:hover {
+	color: #f60;
+}
+
+.zj_list dl dd span {
+	color: #575757;
+	margin-left: 20px;
+}
+
+.zj_list dl dd p {
+	width: 350px;
+	color: #afafaf;
+	margin-top: 10px;
+	line-height: 24px;
+}
+
+.zj_list  img {
+	border: 1px solid #dfddde;
+}
+/*通知公告*/
+.yy_til p {
+	float: left;
+	color: #fff;
+	margin-left: 40px;
+}
+
+.yy_til p span {
+	font-size: 14px;
+	font-weight: 600;
+	background: url(../images/01.gif) no-repeat left 1px;
+	padding-left: 20px;
+}
+/*医院预约弹窗*/
+.yy_text {
+	margin: 0 auto;
+	background: #fff;
+	border: 1px #b5ccde solid;
+}
+
+.yy_text h4 {
+	color: #155ba1;
+	font-size: 14px;
+	height: 30px;
+	line-height: 30px;
+	_line-height: 28px;
+	background: url(../images/tt.jpg) repeat-x;
+	padding-left: 18px;
+}
+
+.yy_text ul {
+	background: #eff8fd;
+	margin: 1px;
+	line-height: 28px;
+	color: #444;
+	padding: 10px 0 20px 110px;
+	height: 290px;
+}
+
+.yy_text ul.kk {
+	height: auto;
+	padding: 10px 0 20px 80px;
+}
+
+.yy_text ul li {
+	float: left;
+	width: 320px;
+	margin: 2px 0;
+}
+
+.yy_text ul li label {
+	width: 80px;
+	text-align: right;
+	float: left;
+}
+
+.yy_text ul li label.checkbox {
+	width: 20px;
+	float: none;
+}
+
+.yy_text ul li em {
+	color: red;
+}
+
+.yy_text ul li input {
+	margin: 3px;
+	padding: 0 3px;
+}
+
+.yy_text ul li input.in_text, .yy_text ul li input.is_text {
+	width: 150px;
+	height: 24px;
+	line-height: 24px;
+	border: 1px #cdd6dd solid;
+	background: #fff;
+}
+
+.yy_text ul li input.is_text {
+	width: 84px;
+}
+
+.yy_text ul li input.it_but {
+	padding: 3px 10px;
+	_padding: 3px 6px;
+	cursor: pointer;
+	margin: 15px 0 0 110px;
+}
+
+.yy_text ul li span {
+	margin-right: 15px;
+}
+
+.yy_text ul li select {
+	width: 158px;
+	margin: 0 0 0 3px;
+	height: 22px;
+	border: 1px #cdd6dd solid;
+}
+
+.yy_text ul li p {
+	float: left;
+	width: 235px;
+}
+
+/*分时段预约*/
+.fenshi {
+	border: 1px solid lightGrey;
+}
+
+.fenshi h4 {
+	background: #3db8c8;
+	color: #fff;
+	padding: 0 10px;
+	font: 16px/34px 微软雅黑;
+}
+
+.fenshi table {
+	border: 1px solid lightGrey;
+	margin: 15px 30px;
+	font-size: 14px;
+	font-family: 微软雅黑;
+}
+
+.fenshi table th {
+	background: #ebebeb;
+	border: 1px solid #d5d5d5;
+	line-height: 34px;
+	color: #777;
+}
+
+.fenshi table td {
+	border: 1px solid #d5d5d5;
+	line-height: 34px;
+	padding: 2px 0;
+	color: #777;
+	text-align: center;
+}
+
+.fenshi table td a {
+	background: #72c8df;
+	color: #fff;
+	display: inline-block;
+	line-height: 24px;
+	padding: 0 15px;
+	font-size: 13px;
+}
+
+.fenshi table td a:hover {
+	background: #5394a5;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	height: 100%;
+	overflow: auto;
+}
+
+#layout {
+	background: #000;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0.5;
+	filter: alpha(opacity = 50);
+	cursor: pointer;
+	display: none;
+	z-index: 100;
+}
+
+#scheduleTimes {
+	width: 600px;
+	position: absolute;
+	top: 60%;
+	left: 50%;
+	margin: -200px auto 0 -300px;
+	background: #fafafa;
+	z-index: 999;
+	border: 2px solid #eee;
+	border-radius: 5px;
+	box-shadow: 0 0 40px #333;
+	display: none;
+}
+
+#closed {
+	width: 22px;
+	height: 22px;
+	font-size: 14px;
+	line-height: 22px;
+	text-align: center;
+	background: #5394a5;
+	color: #fff;
+	position: absolute;
+	top: 7px;
+	right: 10px;
+	cursor: pointer;
+	border-radius: 11px;
+}
+/*************************/
+.yuyueDiv{width:100px;height:300px;z-index:100000; left: 100px;top: 200px; position:absolute; background-color:red;}
+/**/
+.gulou_zjmz { width:1002px; overflow:hidden;}
+.gulou_zjmz p font { margin:10px 15px 0 15px; color:#b40707; display:block;}
+.gulou_tab { width:460px;}
+.gulou_tab td {color:#8b8a8a; line-height:20px; height:65px;}
+.gulou_tab td .ys_name,.gulou_tab td .ks_name { color:#2cb1d2; font-size:16px;}
+.gulou_tab td .ks_name { font-size:16px; font-weight:600;}
+.gulou_tab td.ver_top { vertical-align:text-top; padding:15px 0 0 15px;}
+.gulou_tab td img { border:1px solid #dedcdd;}
+.gulou_tab td p.ks_yy { padding:8px 0;}
+.collection { display:block; background:url(../../img/tb.png) no-repeat -286px -74px; color:#89b157; padding-left:15px; margin:5px 0;}
+.gulou_tab td.tab_one { padding: 15px 0 5px 15px;}
+.gulou_tab td i { margin-left:10px; color:#333434;}
+.gulou_tab td em a { color:#f99c09;}
+.gulou_tab td p { padding:5px 0;}
+.gulou_tab td p a { font-weight:bold; font-size:13px; color:#888;}
+.gulou_tab td p a:hover,.gulou_tab td em a:hover { color:#f80;}
+
+.yuyue_tingzhen2, .yuyue_yiman2,.yiguoqi2{color: #787878;display: inline-block;line-height: 24px;
+    padding: 0 15px;font-size: 13px;}

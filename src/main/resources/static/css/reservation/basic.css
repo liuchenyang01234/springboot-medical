@@ -1,0 +1,100 @@
+@charset "utf-8";
+/* CSS Document */
+/*-----------------------------  basic ----------------------------------------*/
+html, body, div, iframe, h1, h2, h3, h4, h5, h6, p, a, del, em, b, i, s,
+	img, strong, dd, dl, dt, ol, ul, li, label, form, table, tbody, thead,
+	tr, th, td, address, span, cite {
+	margin: 0;
+	padding: 0;
+	border: medium none;
+}
+
+.hotmian {
+	font: 12px Tahoma, Geneva, sans-serif, "宋体";
+	color: #333;
+	_word-break: break-all;
+	white-space: normal;
+}
+
+/*h1, h2, h3, h4, h5, h6 {*/
+	/*font-size: 100%;*/
+/*}*/
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+a {
+	text-decoration: none;
+	outline: 0;
+	blr: expression(this.onFocus = this.blur ());color: #4f4f4f;
+}
+
+a:hover {
+	color: #f80;
+	text-decoration: none;
+}
+
+em, b, cite, i, s {
+	font-style: normal;
+}
+
+ul, ol {
+	list-style: none;
+	text-align: left;
+}
+
+img, input, select, textarea {
+	font: 12px Arial, sans-serif;
+	vertical-align: middle;
+	padding: 0;
+	margin: 0;
+}
+
+.clear {
+	clear: both;
+	height: 0;
+	font-size: 0;
+	visibility: hidden;
+	display: block;
+}
+
+.clearfix:after {
+	clear: both;
+	content: ".";
+	display: block;
+	visibility: hidden;
+	height: 0;
+	font-size: 0;
+}
+
+.clearfix {
+	zoom: 1;
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.mt8 {
+	margin-top: 8px;
+}
+
+
+.fanye {
+	margin: 15px auto 0px;
+	text-align: center;
+}
+
+
+.hotmian {
+	width: 1002px;
+	overflow: hidden;
+	border: 1px solid #c9c7c8;
+	background: #fff;
+}

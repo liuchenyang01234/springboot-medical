@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html >
+
+    <head>
+
+        <meta charset="utf-8">
+        <title>注册</title>
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/font-awesome.min.css">			<!--登录框右上角key-->
+		<script src="/js/lib/jquery-3.2.1.min.js"></script>
+
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+
+    <body>
+	<header>
+		<img src="/img/logo.png" class="logo"/>
+		<!--<a href="#" class="logo"></a>-->
+		<div class="desc">欢迎注册</div>
+	</header>
+    <div id="main" class="container" >
+        <div class="row">
+        	<div class="col-md-6">
+        		<img id="imgRandom"  class="img-circle">
+        	</div>
+        	<div class="col-md-1">
+        		<div id="vertical"></div>
+        	</div>
+            <div class="col-md-5 ">
+            	<div class="form-top" style="border:1px solid lightgray">
+            		<div class="form-top-left">
+            			<h3><b>注册</b></h3>
+                		<p>一对一的视频问诊平台</p>
+            		</div>
+            		<div class="form-top-right">
+            			
+            		</div>
+                </div>
+                <div class="form-bottom">
+                    <form role="form" action="" method="post" class="login-form">
+                    	<div class="form-group">
+                    		<div class="input-group marginH">
+								<span class="input-group-addon" id="user">用户名</span>
+								<input id="username" type="text" class="form-control" placeholder="请输入要注册的用户名" onblur="checkUserName(this.value)">
+							</div>
+							<div id="errUser" class="errFont">用户名长度5到16位，可以是字母，数字，下划线，减号</div>
+
+
+							<div class="input-group marginH">
+								<span class="input-group-addon" id="pass">设置密码</span>
+								<input id="pwd" type="password" class="form-control" placeholder="请输入您要设置的密码" onblur="checkpassword(this.value)">
+								<!--<span id="psdCheck" class="statusCheck input-group-addon glyphicon glyphicon-ok"></span>-->
+								<!--<span id="psdCheck" class="statusCheck input-group-addon glyphicon glyphicon-remove" ></span>-->
+							</div>
+							<div id="errPwd" class="errFont">密码应为6-20位字母数字的组合</div>
+
+
+							<div class="input-group marginH">
+								<span class="input-group-addon" id="pnumber">手机号码</span>
+								<input id="phone" type="text" class="form-control" placeholder="请输入11位手机号" onblur="checkPhone(this.value)">
+
+
+								<!--<span id="phoneCheck" class="statusCheck input-group-addon glyphicon glyphicon-ok" ></span>
+								<span id="phoneCheck1" class="statusCheck input-group-addon glyphicon glyphicon-remove" ></span>-->
+							</div>
+							<div id="errPhone" class="errFont">手机格式不正确</div>
+
+							
+                        	<div class="row">
+                    			<div class="col-md-8">
+                    				<div class="input-group marginH" id="infoCode">
+                    					<span class="input-group-addon" id="basic-addon1">短信验证码</span>
+										<input  id="code" type="text" class="form-control" placeholder="手机验证码" >
+										<!--<span id="infoCheck" class="statusCheck input-group-addon glyphicon glyphicon-ok" ></span>-->
+										<!--<span id="infoCheck1" class="statusCheck input-group-addon glyphicon glyphicon-remove" ></span>-->
+									</div>
+                    			</div>
+                    			<div class="col-md-4">
+                    				<button type="button" id="getInfoCode" class="btn btn-info" onclick="test()">点击获取</button>
+                    			</div>
+                        	</div>
+                        	
+
+                        </div>
+                       
+                        <button id="submit"  type="button" class="btn btn-success" onclick="reg_func()">注册</button>
+                        <div id="bottomText"  class="row" >
+                        	<div class="col-md-6">
+                        		<a href="#" id="forgotPsd">忘记密码?</a>
+                        	</div>
+                        	<div class="col-md-6">
+                        		<a href="login.html" class="pull-right">已有账号？去登陆</a>
+                        	</div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<!--<script src="js/status.js"></script>-->
+    </body>
+	<script type="text/javascript" src="/js/lib/jquery-1.12.4.min.js" ></script>
+	<script src="/js/lib/bootstrap.min.js"></script>
+	<script src="/js/util.js"></script>
+	<script src="/js/lib/bootstrap-notify.min.js"></script>
+	<script src="/js/verify.js"></script>
+	<script src="/js/status.js"></script>
+	<script src="/js/img.js"></script>
+	<script src="/js/time.js"></script>
+	<script src="/js/reg.js"></script>
+</html>

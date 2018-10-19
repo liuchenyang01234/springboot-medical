@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>提交订单</title>
+
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
+
+    <link rel="stylesheet" href="css/info.css" />
+
+    <link type="text/css" rel="stylesheet" href="css/reservation/process.css">
+    <link href="css/jquery.dropdown.css" type="text/css" rel="stylesheet">
+
+</head>
+
+<header>
+    <img src="img/logo.png" class="logo"/>
+    <!--<a href="#" class="logo"></a>-->
+    <div class="desc">个人中心</div>
+    <a id="hhome" href="#">网站首页</a>
+    <a id="hname" href="#">退出登录</a>
+
+</header>
+
+<body>
+    <div class="padtb20">
+        <div class="content w960">
+            <div class="order-bor marbot50 border-top-no">
+
+        <!-- 医生信息 -->
+        <div class="order-tit">医生信息</div>
+        <div id="doctor_info" class="fn-clear order-con">
+
+        </div>
+        <!-- 医生信息 -->
+
+        <!-- 就诊时间 -->
+        <div class="order-tit" id="jzdate"><p class="fn-left">就诊时间（必填）</p>
+            <span id="select-time-close" class="select-time-close" style="display:none;"><cite></cite><em>请选择就诊时间</em></span>
+        </div>
+        <div id="yuyue-time" class="fn-clear order-con">
+
+        </div>
+        <!-- 就诊日期 -->
+
+        <!-- 就诊人信息 -->
+        <div class="order-tit" id="memberinfo">
+            <font class="fn-left">就诊人信息</font>
+            <!-- 新增就诊人 -->
+            <a id="add_member_new" class="fl add_family" href="info.html#patientinfo">
+                <i class="order-icon iconA1"></i>新增就诊人
+            </a>
+            <!-- 提示框-->
+            <span id="choose_member_info" class="choose_member_info" style=" display: none; border:none;"><cite></cite><em>请选择就诊人</em></span>
+            <span class="add_member_info" style="display: none;border:none;"><cite></cite><em>请新增就诊人</em></span>
+
+        </div>
+        <div class="order-con">
+            <ul v="" class="fn-clear family-li" id="mem_list">
+
+            </ul>
+        </div>
+        <!-- 就诊人信息 -->
+
+        <!-- 病历资料 -->
+        <div id="otherinfo_clinic" class="order-tit">病历资料（可选）</div>
+        <div class="order-con">
+            <div>选择要提交给医生的病历，可多选：</div>
+            <br>
+            <div class="dropdown-mul-1 dropdown-multiple-label">
+                <select style="display:none" name="" id="case_list" multiple="">
+                    <option disabled>请先选择一位就诊人</option>
+                </select>
+            </div>
+        </div>
+        <!-- 病历资料 -->
+        <!-- 疾病信息 -->
+
+        <div class="order-tit fn-clear" id="diseastit"><p class="fn-left">疾病信息 </p>
+            <span class="write-disease-info"></span>
+        </div>
+        <div class="fn-clear order-con">
+            <div id="judgment" class="fn-left disease-info-left">
+                <textarea name="disease_input" id="disease_input" style="height:100px;color:#999;" class="textareas areanum" autocomplete="off" placeholder="请填写病史，症状，发病时间，接受过的治疗等信息，提前告知医生您的病情，有助于医生对您的诊疗"></textarea><br>
+                <p><span></span><em>0</em>/500</p>
+                <input type="hidden" name="doctor_id" id="doctor_id" value="18108">
+                <input type="hidden" name="order_no" id="order_no" value="">
+                <input type="hidden" name="disease_content" id="disease_content" value="">
+            </div>
+            <div class="fn-right disease-info-rgt">
+                <p>示例：</p>
+                <p style="width:90px;"><span>糖尿病20余年</span><br><em>病史</em></p>
+                <p>，</p>
+                <p style="width:72px;"><span style="border-bottom:none;">半年前开始</span><br><em style="width:70px;border-top:solid 1px #e2a1a1;">症状出现时间</em></p>
+                <p style="width:114px;"><span>手脚像针刺般疼痛</span><br><em>症状</em></p>
+                <p>，</p>
+                <p style="width:60px;"><span>不能睡觉</span><br><em>症状程度</em></p>
+                <p>，</p>
+                <p style="width:170px;"><span>正在服用汉桃叶片和甲谷胺</span><br><em>正在接受的治疗</em></p>
+                <p>，</p>
+                <p style="width:80px;"><span>疗效不明显。</span><br><em>治疗效果</em></p>
+            </div>
+        </div>
+
+        <!-- 疾病信息 -->
+        <!-- 医院预约规则 -->
+        <div id="yuyue_rule" class="order-tit"><p class="fn-left">医院预约规则 </p>
+            <span class="read-rule-close" style="display:none"><cite></cite><em>请阅读预约规则</em></span></div>
+        <div class="order-con">
+            <div rows="" cols="" class="p_prot textareas">
+                <p>这里是预约规则</p>
+            </div>
+            <div class="block p10">
+                <label><input id="check_yuyue_rule" type="checkbox" name="accept" value="1" style="border:none;margin:4px 5px 0 0;" class="must_choose fl"> 我已经了解本站的预约规则</label>
+            </div>
+        </div>
+        <!-- 医院预约规则 -->
+
+        <!-- 支付方式 -->
+        <!--<div id="pay_box" class="order-tit"><p class="fn-left">支付方式</p>-->
+            <!--<span class="select-pay-close" style="display:none"><cite></cite><em>请选择支付方式</em></span>-->
+        <!--</div>-->
+        <!--<div class="order-con">-->
+            <!--<div class="pay-list">-->
+                <!--<input name="pay_online" value="1" type="radio" checked="checked" style="">-->
+                <!--<label class="hui-s fs16 hradio"><i></i>支付宝</label>-->
+                <!--<p class="mt10" style="line-height:24px;font-weight:100;color:#00a2e3;">-->
+                    <!--支付宝扫码支付-->
+                <!--</p>-->
+            <!--</div>-->
+            <!--<div class="pay-list">-->
+                <!--<input name="pay_online" value="0" type="radio" style="">-->
+                <!--<label class="hui-s fs16 hradio hradio_checked"><i></i>微信支付</label>-->
+                <!--<p class="hui-q mt10" style="line-height:24px;font-weight:100;color:#00a2e3;">-->
+                    <!--微信扫码支付-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!-- 支付方式 -->
+
+        <!-- 提交订单 -->
+        <div class="fn-clear block tj-order">
+
+            <div class="new-sub">
+                <input type="button" id="submitbtn" value="提交订单" onclick="submit()" class="fn-left orderbtn">
+                <span class="send-sms fn-left">相关提示短信将发送到就诊人的手机号码中</span>
+                <div class="fn-clear"></div>
+            </div>
+        </div>
+        <!-- 提交订单 -->
+    </div>
+        </div>
+    </div>
+
+</body>
+
+<!--医生信息替换模板-->
+<script type="text/html" id="doctor_info_change">
+    <dl class="fn-left docinfo">
+        <dt><img src="{img}"></dt>
+        <dd>
+            <a href="doctors.html?doctor_id={doctor_id}" target="_blank">{name}</a><br>
+            南京鼓楼医院<br>
+            {department}<br>
+            {type}
+        </dd>
+    </dl>
+    <div class="fn-right doc-type">
+        咨询类型：<i class="c1">{department}-{type}</i><br>
+        费用：<i class="c1">{price}元</i>
+    </div>
+</script>
+<!--就诊时间替换模板-->
+<script type="text/html" id="time_change">
+    <div class="order-time">
+        {date}
+        <i>{week}</i>
+    </div>
+    <div class="fn-left yy-time">
+        <ul class="fn-clear" id="delts">
+
+            <!--<li value="1" class="cur">08:00-12:00</li>-->
+        </ul>
+    </div>
+</script>
+<!--患者列表替换模板-->
+<script type="text/html" id="mem_change">
+    <li>
+        <label class="pr">
+            <div class="fun_td">
+                <span class="span-edit inblo">
+                    <!--修改患者信息 -->
+                    <span class="fl span-a">
+                        <a class="edit-phone" href="info.html#patientinfo">
+                            <i class="order-icon fl"></i>修改
+                        </a>
+                    </span>
+                    <!--修改患者信息-->
+                </span>
+            </div>
+
+            <span class="tips_wrap">
+                <input name="mem_list" value="{user_id}" style="margin-top:5px;" class="fl must_choose" type="radio">
+                <span class="fl w1 elli ml5" style="width: 80px;">{name}</span>
+            </span>
+
+            <span class="w4">{sex}</span>
+            <span class="w3">{birth}</span>
+            <span class="w2">{address}</span>
+            <span class="w3">{phone}</span>
+
+        </label>
+    </li>
+
+</script>
+
+<script src="js/lib/jquery-3.2.1.min.js"></script>
+<script src="js/lib/jquery.dropdown.js"></script>
+<script src="js/util.js"></script>
+<script src="js/reservation/order.js"></script>
+</html>

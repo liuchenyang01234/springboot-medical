@@ -1,0 +1,59 @@
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>预约成功</title>
+
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="css/info.css" />
+
+    <link rel="stylesheet" href="css/reservation/process.css" />
+
+
+
+</head>
+
+<header>
+    <img src="img/logo.png" class="logo"/>
+    <!--<a href="#" class="logo"></a>-->
+    <div class="desc">个人中心</div>
+    <a id="hhome" href="#">网站首页</a>
+    <a id="hname" href="#">退出登录</a>
+
+</header>
+<body>
+
+<div class="content w960">
+    <div class="order-con success-con layout">
+        <div class="success-main fl">
+            <i class="icons success-icon"></i>
+            <p class="sucess-title">预约成功</p>
+            <ul id="success" class="success-ul">
+
+            </ul>
+            <div class="">
+                <a href="javascript:pay()" class="ok-btn fl">在线支付预约费</a>
+                <a href="info.html#orderlist" class="ok-a fl mt8" style="margin-left:25px;">查看我的订单</a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+<!--替换模板-->
+<script type="text/html" id="succ_change">
+    <li>就  诊  人&nbsp;：<span class="">{name}</span></li>
+    <li>医院名称：<span class="">南京鼓楼医院</span></li>
+    <li>科室医生：<span class="">{department} - {doctor_name}</span></li>
+    <li>就诊时间：<span class="">{date}</span><span class="">{range}&nbsp;</span></li>
+    <li>咨询密码：<span class="">{code}</span></li>
+</script>
+<script src="js/util.js"></script>
+<script src="js/lib/jquery-3.2.1.min.js"></script>
+<script src="js/order/loadorder.js"></script>
+</html>

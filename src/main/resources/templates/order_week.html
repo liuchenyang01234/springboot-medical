@@ -1,0 +1,55 @@
+
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/bootstrap-table.css">
+<link rel="stylesheet" href="css/bootstrap-datepicker3.css">
+
+<div class="col-md-9">
+
+    <h3>预约中的咨询</h3>
+
+    <table class="table table-hover">
+
+        <tbody>
+        <tr><td><b>预约日期</b><br>按日期查询预约情况</td>
+            <td>
+                <div class="input-group date datepicker">
+                    <input type="text" id="appointment_time" class="form-control">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-th "></span>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <input type="button" class="btn btn-success" id="search_by_date" value="查询">
+            </td></tr>
+
+        </tbody></table>
+
+
+    <div id="list-orders">
+        <table id="order"></table>
+    </div>
+</div>
+
+
+<script src="js/caseInfo/bootstrap-table.js"></script>                       <!--table插件-->
+<script src="js/caseInfo/bootstrap-table-zh-CN.js"></script>                 <!--中文table-->
+<script src="js/order/doctor_order_list.js"></script>
+<script src="js/caseInfo/bootstrap-datepicker.js"></script>                  <!--生日选择-->
+<script src="js/caseInfo/bootstrap-datepicker.zh-CN.min.js"></script>        <!--调用中文生日选择-->
+<script src="js/order/orderlist_by_date.js"></script>
+<script src="js/util.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $('.datepicker').datepicker({
+            language: 'zh-CN'
+        });
+    });
+    $("#search_by_date").on('click',function () {
+        var date = $("#appointment_time").val();
+        if (date == null)
+            alert("请选择预约日期");
+        else
+            init_orderlist(date);
+    });
+</script>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>个人中心</title>
+    <meta name="keywords" content="侧边导航菜单(可分组折叠)">
+    <meta name="description" content="侧边导航菜单(可分组折叠)" />
+    <meta name="HandheldFriendly" content="True" />
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap-table.css">
+
+
+    <link rel="stylesheet" href="css/info.css" />
+    <!--导入说明css-->
+    <link rel="stylesheet" href="css/docs.css">
+
+
+    <!-- Icons -->
+    <link href="css/sidebar/icons.css" rel="stylesheet" />
+    <!-- Main stylesheets (template main css file) -->
+    <link href="css/sidebar/main.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+<div id="header" class="header-fixed">
+    <div class="container-fluid">
+        <div class="navbar">
+
+            <div class="navbar-header">
+                <a class="navbar-brand" href="admin.html">
+                    <i class="text-logo-element animated bounceIn"></i><span class="text-logo">O</span><span class="text-slogan">MS</span>
+                </a>
+            </div>
+
+            <nav class="top-nav" role="navigation">
+                <ul class="nav navbar-nav pull-left">
+
+                    <li id="toggle-sidebar-li">
+                        <a href="javascript:void(0)" id="toggle-sidebar" onclick="switch_sidebar()"><i class="en-arrow-left2" style="transform: rotate(0deg);"></i>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="javascript:void(0)" class="full-screen" onclick="fulls()"><i class="fa-fullscreen"></i></a>
+                    </li>
+
+                </ul>
+
+                <ul class="nav navbar-nav pull-right">
+
+
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" data-toggle="dropdown">
+                            <img class="user-avatar" id="avatar-head" src="" alt=""><span id="username-head"></span></a>
+                        <ul class="dropdown-menu animated fadeInDown" role="menu" style="margin-left: -24px;">
+
+                            <li><a href="javascript:void(0)" onclick="admin_group()"><i class="st-user"></i> 管理员资料</a>
+                            </li>
+
+                            <li onclick="loadInner()"><a href="javascript:void(0)" id="login_log" onclick="admin_group()"><i class="st-settings"></i> 登录日志</a>
+                            </li>
+
+                            <li><a href="../login.html" onclick="logout()"><i class="im-exit"></i> 退出登录</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!-- Start .header-inner -->
+</div>
+
+<div id="sidebar" class="sidebar-fixed">
+    <!-- Start .sidebar-inner -->
+    <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;"><div class="sidebar-inner" style="overflow: hidden; width: auto; height: 100%;">
+        <!-- Start #sideNav -->
+        <ul id="sideNav" class="nav nav-pills nav-stacked show-arrows">
+
+            <li class="hasSub"  data-toggle="collapse" data-target="#admin-side1">
+                <a href="javascript:void(0)" class="notExpand"><i class="en-arrow-down5 sideNav-arrow"></i> 医生管理 <i class="im-users"></i></a>
+
+            </li>
+
+            <div id="admin-side1" class="collapse">
+                <ul class="nav sub">
+                    <li><a href="javascript:void(0)" onclick="admin_group()" id="managedoctor"><i class="im-profile"></i> 管理医生资料</a>
+                    </li>
+                    <li><a href="javascript:void(0)" onclick="admin_group()" id="managedtype"><i class="im-users2"></i> 管理医生类型</a>
+                    </li>
+                </ul>
+            </div>
+
+            <li class="hasSub"  data-toggle="collapse" data-target="#admin-side2">
+                <a href="javascript:void(0)" class="notExpand"><i class="en-arrow-down5 sideNav-arrow"></i> 科室管理 <i class="im-office"></i></a>
+
+            </li>
+
+            <div id="admin-side2" class="collapse">
+                <ul class="nav sub">
+                    <li><a href="javascript:void(0)" onclick="admin_group()" id="managedepartment"><i class="ec-pencil2"></i> 管理科室资料</a>
+                    </li>
+                </ul>
+            </div>
+
+            <li class="hasSub"  data-toggle="collapse" data-target="#admin-side3">
+                <a href="javascript:void(0)" class="notExpand"><i class="en-arrow-down5 sideNav-arrow"></i> 排班管理 <i class="im-calendar"></i></a>
+
+            </li>
+
+            <div id="admin-side3" class="collapse">
+                <ul class="nav sub">
+                    <li><a href="javascript:void(0)" onclick="admin_group()" id="managerange"><i class="st-clock"></i> 管理预约时段</a>
+                    </li>
+                    <li><a href="javascript:void(0)" onclick="admin_group()" id="manageduty"><i class="st-user2"></i> 管理医生排班</a>
+                    </li>
+                </ul>
+            </div>
+
+            <li class="hasSub"  data-toggle="collapse" data-target="#admin-side4">
+                <a href="javascript:void(0)" class="notExpand"><i class="en-arrow-down5 sideNav-arrow"></i> 投诉管理 <i class="en-chat"></i></a>
+
+            </li>
+
+            <div id="admin-side4" class="collapse">
+                <ul class="nav sub">
+                    <li><a href="javascript:void(0)" onclick="admin_group()" id="managecomplaint"><i class="st-chat-3"></i> 管理患者投诉</a>
+                    </li>
+                </ul>
+            </div>
+
+            <li class="hasSub"  data-toggle="collapse" data-target="#admin-side5">
+                <a href="javascript:void(0)" class="notExpand"><i class="en-arrow-down5 sideNav-arrow"></i> 数据统计 <i class="im-pie"></i></a>
+
+            </li>
+
+            <div id="admin-side5" class="collapse">
+                <ul class="nav sub">
+                    <li><a href="javascript:void(0)" onclick="admin_group()" id="orderstat"><i class="en-newspaper"></i> 订单数据</a>
+                    </li>
+                    <li><a href="javascript:void(0)" onclick="admin_group()" id="userstat"><i class="st-users2"></i> 用户数据</a>
+                    </li>
+                    <li><a href="javascript:void(0)" onclick="admin_group()" id="docstat"><i class="st-user2"></i> 医生数据</a>
+                    </li>
+                    <li><a href="javascript:void(0)" onclick="admin_group()" id="depstat"><i class="st-home"></i> 科室数据</a>
+                    </li>
+                </ul>
+            </div>
+
+            <li class="hasSub"  data-toggle="collapse" data-target="#admin-side6">
+                <a href="javascript:void(0)" class="notExpand"><i class="en-arrow-down5 sideNav-arrow"></i> 账号设置 <i class="en-user"></i></a>
+
+            </li>
+
+            <div id="admin-side6" class="collapse">
+                <ul class="nav sub">
+                    <li><a href="javascript:void(0)" onclick="admin_group()" id="login_log"><i class="im-file-openoffice"></i> 登录记录</a>
+                    </li>
+                </ul>
+            </div>
+
+        </ul>
+        <!-- End #sideNav -->
+
+    </div>
+        <div class="slimScrollBar" style="background: rgb(153, 153, 153); width: 5px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 0px; height: 428.656px;"></div><div class="slimScrollRail" style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(238, 238, 238); opacity: 0.5; z-index: 90; right: 0px;"></div></div>
+    <!-- End .sidebar-inner -->
+</div>
+
+
+<div id="content">
+
+    <div id="info-content"></div>
+
+
+</div>
+
+<script src="js/lib/jquery-1.12.4.min.js"></script>
+<script src="js/lib/bootstrap.min.js "></script>
+<script src="js/lib/bootstrap-notify.min.js"></script>
+<script src="js/util.js"></script>
+<script src="js/admin/admininfo.js"></script>
+
+</body>
+
+</html>

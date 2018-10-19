@@ -1,0 +1,78 @@
+
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/bootstrap-table.css">
+
+<div class="col-md-9">
+
+    <h3>咨询叫号</h3>
+
+    <div class="container">
+
+        <button class="btn btn-warning" id="create_live" onclick="create_live()">创建直播间</button>
+        <button class="btn btn-warning" id="live" onclick="live_btn()">进入直播间</button>
+        <button class="btn btn-success" id="queue" data-toggle="modal" data-target="#myModal" >叫号</button>
+        <button class="btn btn-info" id="introduction">使用说明</button>
+    </div>
+
+    <div id="NotFrame">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">当前时间段预约咨询</h3>
+            </div>
+
+            <div id="list-orders">
+                <table id="order"></table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" style="margin-top: 200px ;" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">叫号</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="contentCall">
+                        您确定要进行叫号吗？
+                    </div>
+                    <a id="link" href="" style="display: none" target="_blank">叫号成功，点击跳转到被叫号患者的订单信息</a>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" id="ok" onclick="load()" class="btn btn-primary">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="js/caseInfo/bootstrap-table.js"></script>                       <!--table插件-->
+<script src="js/caseInfo/bootstrap-table-zh-CN.js"></script>                 <!--中文table-->
+<script src="js/medicalrecord/data.js"></script>                                  <!--table初始化-->
+<script src="js/order/doctor_order_list.js"></script>
+<script>
+    window.onunload = init_order_table("3");
+
+    $.ajax({
+        type: "POST",
+        url: config.base_url + "Doctorprofile/tokenquery",
+        data:{
+            'token':checktoken()
+        },
+        success: function (data) {
+            if (data.succ == 1){
+                $("#live").attr('value',data.data.live_link);
+            }
+        }
+    });
+
+    function live_btn() {
+        var url = config.doctor_live_url + $('#live').attr("value");
+        window.open(url);
+    }
+
+</script>

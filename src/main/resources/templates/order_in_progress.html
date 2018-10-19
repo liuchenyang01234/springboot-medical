@@ -1,0 +1,21 @@
+
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/bootstrap-table.css">
+
+<div class="col-md-9">
+
+    <h3>待建议的咨询</h3>
+
+    <div id="list-orders">
+        <table id="order"></table>
+    </div>
+</div>
+
+
+<script src="js/caseInfo/bootstrap-table.js"></script>                       <!--table插件-->
+<script src="js/caseInfo/bootstrap-table-zh-CN.js"></script>                 <!--中文table-->
+<script src="js/medicalrecord/data.js"></script>                                  <!--table初始化-->
+<script src="js/order/doctor_order_list.js"></script>
+<script>
+    window.onunload = init_order_table("2");
+</script>

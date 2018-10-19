@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>登录</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">			<!--登录框右上角key-->
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+<header>
+    <img src="/img/logo.png" class="logo"/>
+    <!--<a href="#" class="logo"></a>-->
+    <div class="desc">欢迎登录</div>
+
+</header>
+<div id="main" class="container" >
+    <div class="row">
+        <div class="col-md-6">
+            <img id="imgRandom" src="/img/4.png" class="img-circle">
+        </div>
+        <div class="col-md-1">
+            <div id="vertical"></div>
+        </div>
+        <div class="col-md-5 ">
+            <div class="form-top" style="border:1px solid lightgray;">
+                <div class="form-top-left">
+                    <h3><b>登录</b></h3>
+                    <p>一对一的视频问诊平台</p>
+                </div>
+                <div class="form-top-right">
+
+                </div>
+            </div>
+            <div class="form-bottom">
+                <form role="form" action="" method="post" class="login-form">
+                    <div class="form-group">
+
+                        <input type="text" name="form-username" placeholder="用户名" class="form-control" id="form-username">
+                    </div>
+                    <div class="form-group">
+
+                        <input type="password" name="form-password" placeholder="密码" class="form-control" id="form-password">
+                    </div>
+                    <button type="button" id="submit" class="btn btn-success" onclick="login()">登录</button>
+                    <div id="bottomText"  class="row" >
+                        <div class="col-md-6">
+                            <a href="#" data-toggle="modal" data-target="#find-pwd-modal">忘记密码?</a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="/register" class="pull-right">注册账号</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade in" id="find-pwd-modal" aria-hidden="true" aria-labelledby="find-pwd-label" role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal" type="button">&times;</button>
+                <h4 class="modal-title">找回密码</h4>
+            </div>
+            <div class="modal-body">
+
+                <div id="alertmessage"></div>
+
+                <div class="input-group marginH">
+                    <span class="input-group-addon" >绑定手机</span>
+                    <input id="phone" type="text" class="form-control" placeholder="请输入当前绑定的手机号">
+                </div>
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="input-group marginH" id="infoCode">
+                            <span class="input-group-addon">短信验证码</span>
+                            <input id="code" type="text" class="form-control" placeholder="手机验证码" >
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" id="getInfoCode" class="btn btn-info" onclick="send()">点击获取</button>
+                    </div>
+                </div>
+
+                <div class="input-group marginH">
+                    <span class="input-group-addon" >新密码</span>
+                    <input id="password" type="text" class="form-control" placeholder="请输入新的密码">
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button id="bOK" type="button" class="btn btn-success" onclick="find_pwd()">确定</button>
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/lib/jquery-3.2.1.min.js"></script>
+<script src="/js/lib/bootstrap-notify.min.js"></script>
+
+<script src="/js/cookie.js"></script>
+<script src="/js/util.js"></script>
+<script src="/js/time.js"></script>
+<script src="/js/login.js"></script>
+
+<script src="/js/lib/bootstrap.min.js"></script>
+
+<script src="/js/img.js"></script>
+<script>
+    $("body").keydown(function(event) {
+        if (event.keyCode == "13") {//keyCode=13是回车键
+            $('#submit').click();
+        }
+    });
+</script>
+
+</body>
+
+</html>

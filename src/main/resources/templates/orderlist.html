@@ -1,0 +1,43 @@
+
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/bootstrap-table.css">
+
+<div class="col-md-9">
+
+    <div class="btn-group" >
+        <h3>患者订单查看</h3>
+        <button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" aria-expanded="false" id="current_name" onclick="clearInput()">选择患者<span class="caret"></span></button>
+        <ul id="user_list" class="dropdown-menu" role="menu">
+        </ul>
+        <select class="seaSelect" id="search" onchange="changeStatus()">
+            <option value="待支付">待支付</option>
+            <option value="待支付">待咨询</option>
+            <option value="待支付">咨询中</option>
+            <option value="待支付">待建议</option>
+            <option value="待支付">待评价</option>
+            <option value="待支付">已完成</option>
+            <option value="待支付">已取消</option>
+            <option value="已删除">已删除</option>
+        </select>
+    </div>
+
+    <div id="list-orders">
+        <table id="order"></table>
+    </div>
+</div>
+
+<script src="js/util.js"></script>
+<script src="js/caseInfo/bootstrap-table.js"></script>                       <!--table插件-->
+<script src="js/caseInfo/bootstrap-table-zh-CN.js"></script>                 <!--中文table-->
+<script src="js/caseInfo/bootstrap-table-filter-control.js"></script>
+<script src="js/order/orderlist.js"></script>
+<!--<script language="javascript" type="text/javascript">-->
+    <!--$(document).ready(function(){-->
+        <!--$('#search').change(function(){-->
+            <!--alert($(this).children('option:selected').val());-->
+            <!--var p1=$(this).children('option:selected').val();//这就是selected的值-->
+
+        <!--})-->
+    <!--})-->
+<!--</script>-->
+

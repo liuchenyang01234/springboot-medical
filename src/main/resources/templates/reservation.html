@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>预约医生</title>
+
+    <link href="css/reservation/basic.css" type="text/css" rel="stylesheet">
+    <link href="css/reservation/xz_ks.css" type="text/css" rel="stylesheet">
+    <link href="css/jquery.pagination.css" type="text/css" rel="stylesheet">
+
+    <!--解决与bootstrap的css冲突-->
+    <style>
+        th {
+            font-weight: bold;
+            text-align: center;
+        }
+        .small, small {
+             font-size: 100%;
+        }
+        dd, dt {
+            line-height: unset;
+        }
+        .department_item {
+             box-sizing: unset;
+            -webkit-box-sizing: unset;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+<!--<div class="middle">-->
+
+    <div class="yy_ys">
+
+        <br>
+        <h3>预约医生</h3>
+        <br>
+
+            <div class="hotmian">
+
+                <dl class="yy_list">
+                    <dt>科室分类：</dt>
+                    <dd>
+                        <em class="department_item" style="background:#75b9e6; color:#fff;" id="department0" onclick="switch_department(0)">不限</em>
+
+                        <span id="departments" class="big">
+
+
+                        </span>
+
+                    </dd>
+                </dl>
+
+                <!--  -->
+                <table id="maintable" class="tab">
+
+                    <thead id="thead">
+
+                    </thead>
+
+                    <tbody id="tablebody">
+
+                    </tbody>
+                </table>
+            </div>
+
+        <div id="pagination3" class="page fl"></div>
+
+
+    </div>
+<!--</div>-->
+
+</body>
+
+<!-- 医生介绍替换模板 -->
+<script type="text/html" id='doctor_change'>
+    <tr>
+
+        <td width="8%" rowspan="2" class="tab_one">
+            <a href="/doctors.html?doctor_id={doctor_id}" target="_blank">
+                <img src="{img}" width="60" height="80">
+            </a>
+            <a class="collection" target="_blank" href="doctors.html?doctor_id={doctor_id}">详细介绍</a>
+        </td>
+
+        <td width="15%" rowspan="2" class="tab_xx ver_top">
+            <a class="ys_name" href="doctors.html?doctor_id={doctor_id}" target="_blank">{name}</a>
+            <i title="{type}">{type}</i>
+
+            <!-- 暂不考虑其他医院 -->
+            <p>
+                <a target="_blank" style="color: #8b8a8a" href="">南京鼓楼医院</a>
+                <br>[三级甲等]
+            </p>
+
+            <em>
+                <a target="_blank" style="color: #f99c09;" href="">{department}</a>
+            </em>
+        </td>
+
+
+        <td width="22%" rowspan="2" class="tab_xx ver_top">
+            {description}
+        </td>
+        <!--此处限制字数最多74个字符-->
+
+</script>
+
+<script src="js/util.js"></script>
+<script src="js/lib/jquery-3.2.1.min.js"></script>
+<script src="js/lib/jquery.pagination.min.js"></script>
+<script src="js/reservation/loadinfo.js"></script>
+</html>

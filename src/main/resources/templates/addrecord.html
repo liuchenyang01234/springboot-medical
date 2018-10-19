@@ -1,0 +1,279 @@
+<link rel="stylesheet" href="css/step-lib.css">
+<link rel="stylesheet" href="css/bootstrap-datepicker3.css">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
+
+<link rel="stylesheet" href="css/fileinput.css">
+<link rel="stylesheet" href="css/auto.css">
+<link rel="stylesheet" href="css/cropper/jquery.Jcrop.css">
+
+<div class="col-md-9" role="main">
+
+    <h3>新建病历</h3>
+
+    <ul class="nav nav-pills nav-justified step step-arrow">
+        <li>
+            <a>输入病历信息</a>
+        </li>
+        <li>
+            <a>上传相关图片</a>
+        </li>
+        <li>
+            <a>完成</a>
+        </li>
+    </ul>
+
+    <div id="step1" class="table-responsive">
+        <table class="table table-hover">
+
+            <tbody>
+            <tr>
+                <td><b>患者信息</b><br/>选择一名患者为其新建病历</td>
+                <td><select id="profile" name="profile" class="form-control"></select></td>
+            </tr>
+            <tr>
+                <td><b>就诊时间</b><br/>就诊时间</td>
+                <td>
+                    <div class="input-group date datepicker">
+                        <input type="text" id="visit_time" class="form-control">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-th "></span>
+                        </div>
+                    </div>
+                </td>
+                </td></tr>
+            <tr>
+                <td><b>就诊医院</b><br/>就诊医院</td>
+                <td>
+                    <div class="wrap">
+                        <input type="text" id="hospital" class="form-control auto-inp" name="system_url">
+                        <div class="auto hidden" id="auto">
+                            <div class="auto_out">1</div>
+                            <div class="auto_out">2</div>
+                        </div>
+                    </div>
+
+                </td>
+            <tr>
+                <td><b>描述</b><br><br>简单描述疾病、诊断结果、治疗情况等</td>
+                <td>
+                    <textarea id="description" class="form-control" style="height:200px"></textarea>
+
+            </tbody>
+        </table>
+
+        <br/>
+        <div id="alertmessage"></div>
+        <input type="button" class="btn btn-success" id="submit" value="下一步">
+
+
+    </div>
+
+    <div id="step2">
+        <table class="table table-hover">
+            <tbody>
+            <tr>
+                <td><b>图片类型</b><br/>选择要上传的图片类型</td>
+                <td><select id="type" name="type" class="form-control"></select></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <ul id="imageTab" class="nav nav-tabs">
+            <li class="active">
+                <a href="#bsinput" data-toggle="tab">
+                    原文件上传
+                </a>
+            </li>
+            <li>
+                <a href="#crop" data-toggle="tab">
+                    裁剪文件上传
+                </a>
+            </li>
+        </ul>
+
+        <div id="TabContent" class="tab-content">
+            <div class="tab-pane fade in active" id="bsinput">
+                <input id="imageFile" type="file" multiple="multiple">
+            </div>
+            <div class="tab-pane " id="crop">
+                <input type="file" id="file" class="file">
+                <img id="img" src="" >
+                <button id="upImg" class="btn btn-info">上传图片</button>
+
+            </div>
+
+        </div>
+
+
+        <!--<div id="demo" class="demo"></div>-->
+    </div>
+    <script src="js/medicalrecord/addrecord.js"></script>
+    <script type="text/javascript" src="js/lib/step-lib.js"></script>
+    <script src="js/caseInfo/bootstrap-datepicker.js"></script>                  <!--生日选择-->
+    <script src="js/caseInfo/bootstrap-datepicker.zh-CN.min.js"></script>        <!--调用中文生日选择-->
+    <script src="js/admin/fileinput.js"></script>
+    <script src="js/admin/zh.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.datepicker').datepicker({
+                language: 'zh-CN'
+            });
+        });
+        $(document).ready(function () {
+            bsStep();
+        });
+    </script>
+    <script src="js/medicalrecord/auto.js"></script>
+    <script>
+        var array = [];
+        $('#hospital').bind('input propertychange', function () {
+            //全国医疗机构库
+            /**
+             * param q 医院关键字
+             * param i 固定为 be_hmap__me_name
+             */
+            $.ajax({
+                url: "https://db.yaozh.com/ajax/inputts",
+                type: "GET",
+                data: {
+                    q: $(this).val(),
+                    i: "be_hmap__me_name"
+                },
+                success: function (res) {
+                    try {
+                        var json = JSON.parse(res);
+                        for (var i = 0; i < json.length; i++) {
+                            array.push(json[i]);
+                        }
+                    } catch (e) {
+                        // console.log("输入不合法");
+                    }
+                }
+            });
+        });
+
+        var autoComplete = new AutoComplete("hospital", "auto", array);
+        document.getElementById("hospital").onkeyup = function (event) {
+            autoComplete.start(event);
+        }
+    </script>
+    <script src="js/lib/cropper/jquery.Jcrop.js"></script>
+    <script src="js/lib/cropper/jquery.color.js"></script>
+    <script>
+        var api = null;
+        var x=0;var y=0;var w=0;var h=0;
+        $('#file').change(function(e) {
+            var file;
+            var files = e.target.files;
+            if (files && files.length > 0) {
+                file = URL.createObjectURL(files[0]);
+                $('#img').removeAttr('src');        //key code
+                $('#img').attr({'src': file});
+                $('#img').Jcrop({
+                    handleSize: 10,
+                    onSelect: posparam
+                },function () {
+                    api = this;
+                });
+                if (api != undefined) {
+                    api.destroy();
+                }
+            }
+            function posparam(e) {
+                console.log("x:"+e.x+"y:"+e.y+"w:"+e.w+"h"+e.h);
+                x = e.x;
+                y = e.y;
+                w = e.w;
+                h = e.h;
+            }
+        });
+        //ajax上传图片：https://blog.csdn.net/x550392236/article/details/76690927
+        $('upImg').click(function () {
+            var formData = new FormData();
+            formData.append('file', $('#file')[0].files[0]);  //添加图片信息的参数
+            formData.append('x',x);  //添加其他参数
+            formData.append('y',y);
+            formData.append('w',w);
+            formData.append('h',h);
+            $.ajax({
+                url: '/material/uploadFile',
+                type: 'POST',
+                cache: false, //上传文件不需要缓存
+                data: formData,
+                processData: false, // 告诉jQuery不要去处理发送的数据
+                contentType: false, // 告诉jQuery不要去设置Content-Type请求头
+                success: function (data) {
+                    var rs = eval("("+data+")");
+                    if(rs.state==1){
+                        tipTopShow('上传成功！');
+                    }else{
+                        tipTopShow(rs.msg);
+                    }
+                },
+                error: function (data) {
+                    tipTopShow("上传失败");
+                }
+            })
+        })
+
+
+    </script>
+    <script>
+        // var image = document.getElementById('img');
+        // var cropper, canvas;
+        // $('#file').change(function(e){
+        //     var file;
+        //     var files = e.target.files;
+        //     if (files && files.length > 0) {
+        //         file = URL.createObjectURL(files[0]);
+        //         $('#img').attr({'src': file})
+        //     }
+        //     cropper = new Cropper(image, {
+        //         aspectRatio: 1,
+        //         viewMode: 1,
+        //         background: false,  //是否显示网格背景
+        //         zoomable: false,   //是否允许放大图像
+        //         guides: false,   //是否显示裁剪框虚线
+        //         crop: function (event) { //剪裁框发生变化执行的函数。
+        //             canvas = cropper.getCroppedCanvas({  //使用canvas绘制一个宽和高200的图片
+        //                 width: 200,
+        //                 height: 200,
+        //             });
+        //             $('#imga').attr("src", canvas.toDataURL("image/png", 0.3))  //使用canvas toDataURL方法把图片转换为base64格式
+        //         }
+        //     });
+        // })
+        //
+        // $('button').click(function () {
+        //     var file = dataURLtoBlob($('#imga').attr("src"));  //将base64格式图片转换为文件形式
+        //     var formData = new FormData();
+        //     var newImg = new Date().getTime() + '.png';   //给图片添加文件名   如果没有文件名会报错
+        //     formData.append('file', file, newImg)  //formData对象添加文件
+        //     $.ajax({
+        //         type: "POST",
+        //         url: url + "/res/upload",
+        //         data: formData,
+        //         processData: false,  // 不处理数据
+        //         contentType: false,  // 不设置内容类型
+        //         success: function (data) {
+        //             var data = JSON.parse(data);
+        //         }
+        //     })
+        // })
+        //
+        // //将base64格式图片转换为文件形式
+        // function dataURLtoBlob(dataurl) {
+        //     var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+        //         bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+        //     while (n--) {
+        //         u8arr[n] = bstr.charCodeAt(n);
+        //     }
+        //     return new Blob([u8arr], { type: mime });
+        // }
+
+    </script>
+
+</div>

@@ -1,0 +1,335 @@
+.bgc{
+	background-color:#337ab7;
+}
+
+/*.nav-font{*/
+	/*font-size: 20px;*/
+	/*text-align: center;*/
+	/*color: white !important;*/
+/*}*/
+
+/*.navbar{*/
+	/*min-height: 60px;*/
+	/*box-shadow: 10px 10px 10px rgba(111,111,111,.5);*/
+/*}*/
+
+/*.navbar-brand{*/
+	/*min-height: 60px;*/
+/*}*/
+
+/*.navbar-right{*/
+	/*margin-right: 20px;*/
+/*}*/
+
+.container{
+	margin-top: 40px;
+	/*width:1000px;*/
+}
+
+.container-row{
+	background-color:#F8F8FF;
+	min-height: 600px;
+}
+
+#frameLine{
+	border: 1px solid lightgray;
+}
+
+.panel-group{
+	max-height:770px;
+	overflow: auto;
+}
+
+.leftMenu{
+	margin:10px;
+	margin-top:5px;
+}
+.leftMenu .panel-heading{
+	font-size:14px;
+	padding-left:20px;
+	height:36px;
+	line-height:36px;
+	color:white;
+	position:relative;
+	cursor:pointer;
+}
+/*转成手形图标*/
+
+.leftMenu .panel-heading span{
+	position:absolute;
+	right:10px;
+	top:12px;
+}
+.leftMenu .menu-item-left{
+	padding: 2px;
+	background: transparent;
+	border:1px solid transparent;
+	border-radius: 6px;
+}
+.leftMenu .menu-item-left:hover{
+	background:#C4E3F3;
+	border:1px solid #1E90FF;
+}
+
+/*homepage.css begin*/
+#hImg{
+	height: 150px;
+	width: 150px;
+	margin-top: 30px;
+}
+
+.row .notification{
+	min-height: 20px;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.notification{
+	/*border:1px solid lightblue;*/
+    line-height:200%;
+	/*text-indent:20px;*/
+}
+
+#NotFrame{
+    margin-top: 40px;
+}
+
+#head{
+	background-color: lightblue;
+    font-weight:bold;
+}
+
+#ntime{
+	color:#909090;
+}
+
+.row .user_info{
+	min-height: 250px;
+	max-height: 300px;
+}
+
+#nbody{
+	padding-left: 0px!important;
+}
+
+.dot{
+	list-style: none;
+}
+
+#hImg:hover{
+	opacity:0.4;
+
+}
+
+#headImg{
+	position: absolute;
+	left: 60px;
+	top:50px;
+	margin-top: 150px;
+
+}
+
+#userHi{
+	/*position: absolute;*/
+	/*margin-top: 45px;*/
+
+}
+/*头像右边的一丢*/
+.col-md-9 .Inform{
+	padding-left: 40px;
+}
+
+.hello{
+	position: relative;
+
+	display: inline;
+	font-family:Microsoft YaHei;
+	font-size: 18px;
+}
+
+.sameline{
+	position: relative;
+	display: inline;
+}
+
+/*您好两字*/
+#nihao{
+
+	padding-left: 25px;
+}
+.space{
+	padding-left: 25px;
+}
+#userInform{
+	margin-top: 20px;
+}
+/*创建时间、最后登录时间*/
+.timeInform{
+	margin-top: 25px;
+
+}
+/*积分、账户余额*/
+.acInform{
+
+	margin-top: 25px;
+	font-size: 14px;
+}
+/*手机号*/
+.phInform{
+
+	margin-top: 25px;
+	font-size: 14px;
+}
+
+#notInform{
+	position: absolute;
+	top: 450px;
+	left:370px;
+}
+
+/*avatar*/
+
+.mod-account-avatar{
+	background-position:0 0;
+	padding:4px 8px 11px 9px;
+	float:left
+}
+
+.mod-account-avatar .account-avatar-panel{
+	display:block;
+	position:relative
+}
+
+.mod-account-avatar .account-avatar-panel:hover
+
+.account-avatar-edit{height:16px}
+
+.mod-account-avatar .account-avatar-edit{
+	display:block;
+	position:absolute;
+	width:100%;
+	background:rgba(64,64,64,.5);
+	background:#333\9;
+	overflow:hidden;
+	bottom:2px;
+	left:0;
+	*bottom:4px;
+	_bottom:16px;
+	height:0;
+	transition:.3s;
+	color:#ccc;
+	text-align:center;
+	filter:alpha(opacity:60)
+}
+
+/*homepage.css end*/
+
+/*head.css*/
+/*.desc{*/
+    /*font-size:16px;*/
+    /*line-height: 34px;*/
+    /*border-left: 1px solid #ccc;*/
+    /*position: absolute;*/
+    /*left: 270px;*/
+    /*top:15px;*/
+    /*padding-left: 15px;*/
+    /*font-weight:bold;*/
+    /*color:#888888;*/
+/*}*/
+
+.logo{
+    width: 150px;
+    height:70px;
+    /*background: url(../images/register.jpg) no-repeat;*/
+    position: absolute;
+    top:0px;
+    left:100px;
+}
+
+header{
+    width:100%;
+    height: 60px;
+    box-shadow: 2px 2px 2px rgba(111,111,111,.5);
+    position: relative;
+}
+
+#hhome{
+	top:20px;
+	font-size: 16px;
+	position: absolute;
+	padding-left: 1090px;
+	color:#888888;
+}
+#hname{
+	top:20px;
+	font-size: 16px;
+	position: absolute;
+	margin-left: 1180px;
+	color:#888888;
+}
+
+/*head.css end*/
+
+/*patientinfo.css end*/
+.modal-body-height{
+	margin-bottom: 10px;
+	font-size:17px;
+}
+.Distr{
+	margin-top: 10px;
+}
+/*patientinfo.css end*/
+
+/*导航栏头像及用户名*/
+#userHH{
+	margin-left: 30px;
+	padding-top: 0px;
+}
+.jumbotron {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	margin-bottom: 30px;
+	color: inherit;
+	background-color: #eee;
+}
+
+.smaller-image{
+	width: 60px;
+	margin-top: 20px;
+	margin-left: 20px;
+
+}
+.userhead{
+	margin-left: 11px;
+	background-color:#337ab7;
+	width: 234px;
+	height:100px;
+	border-radius: 4px;
+}
+/*导航栏头像及用户名 end*/
+
+/*子账号button列表start*/
+.eborder{
+	/*去掉按钮边框*/
+	border: none;
+}
+
+/*orderlist.html页面的select框*/
+.seaSelect{
+	display: inline;
+	width: auto;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	-webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}

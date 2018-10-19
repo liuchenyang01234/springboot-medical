@@ -1,0 +1,281 @@
+
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/bootstrap-table.css">
+<link rel="stylesheet" href="css/fileinput.css">
+
+<br>
+<div class="outlet">
+    <!-- Start .outlet -->
+    <!-- Page start here ( usual with .row ) -->
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <!-- col-lg-4 start here -->
+            <div class="panel panel-default plain" id="spr_1">
+                <!-- Start .panel -->
+                <div class="panel-heading white-bg">
+                    <h4 class="panel-title"><i class="ec-user"></i> 导入医生资料</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="bs-callout bs-callout-info">
+                        <h4>导入操作说明</h4>
+                        <p></p>
+                        <a href="javascript:void(0)" id="download">1.点击此处下载相应的excel模板。</a>
+                        <p></p>
+                        <p>2.按照模板的格式填写医生信息。</p>
+                        <p>3.保存修改后的excel文件并上传。</p>
+                    </div>
+                    <input id="excelFile" type="file" >
+
+                </div>
+            </div>
+            <!-- End .panel -->
+        </div>
+        <!-- col-lg-4 end here -->
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <!-- col-lg-4 start here -->
+            <div class="panel panel-default plain" id="spr_2">
+                <!-- Start .panel -->
+                <div class="panel-heading white-bg">
+                    <h4 class="panel-title"><i class="ec-user"></i> 编辑医生资料</h4>
+                </div>
+                <div class="panel-body">
+
+                    <table class="table table-hover">
+
+                        <tbody>
+                        <tr><td><b>医生姓名</b><br>根据姓名查找医生资料进行修改</td>
+                            <td>
+                                <input type="text" id="search_name" class="form-control">
+                            </td>
+                            <td>
+                                <input type="button" class="btn btn-success" id="search_by_name" onclick="init_doctor_list()" value="查询">
+                            </td></tr>
+
+                        </tbody></table>
+
+
+                    <div id="list-doctors">
+                        <table id="doctors"></table>
+                    </div>
+
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#create-doctor-modal">手动添加医生账号和资料</button>
+
+                </div>
+            </div>
+            <!-- End .panel -->
+        </div>
+        <!-- col-lg-4 end here -->
+    </div>
+    <!-- Page End here -->
+</div>
+
+
+<!--添加医生弹框--1-->
+<div class="modal fade" tabindex="-1" role="dialog" id="create-doctor-modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" >添加医生账号</h4>
+            </div>
+            <div class="modal-body">
+
+                <div id="alertmessage1"></div>
+
+                <div class="row modal-body-height">
+
+                    <div class="col-md-3 col-md-offset-1">
+                        用户名：
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="nickname" class="form-control" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+
+                <div class="row modal-body-height">
+
+                    <div class="col-md-3 col-md-offset-1">
+                        密码：
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="password" class="form-control" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+
+                <div class="row modal-body-height">
+
+                    <div class="col-md-3 col-md-offset-1">
+                        手机号码：
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="phone" class="form-control" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+
+                <div class="row modal-body-height">
+
+                    <div class="col-md-3 col-md-offset-1">
+                        医生姓名：
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="name1" class="form-control" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+
+                <div class="row modal-body-height">
+
+                    <div class="col-md-3 col-md-offset-1">
+                        科室：
+                    </div>
+                    <div class="col-md-8">
+                        <select id="deid1" class="form-control"></select>
+                    </div>
+                </div>
+
+                <div class="row modal-body-height">
+
+                    <div class="col-md-3 col-md-offset-1">
+                        医生类型：
+                    </div>
+                    <div class="col-md-8">
+                        <select id="type1" class="form-control"></select>
+                    </div>
+                </div>
+
+                <div class="row modal-body-height">
+
+                    <div class="col-md-3 col-md-offset-1">
+                        医生简介：
+                    </div>
+                    <div class="col-md-8">
+                        <textarea id="introduction1" class="form-control" style="height:200px"></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="bOK1" onclick="create()">保存</button>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<!--修改医生弹框--2-->
+<div class="modal fade" tabindex="-1" role="dialog" id="edit-doctor-modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" >修改医生资料</h4>
+            </div>
+            <div class="modal-body">
+
+                <div id="alertmessage2"></div>
+
+                <div class="row modal-body-height">
+
+                    <div class="col-md-3 col-md-offset-1">
+                        医生编号：
+                    </div>
+                    <div class="col-md-8" >
+                        <input type="text" id="doctor_id" class="form-control" aria-describedby="basic-addon1" disabled="disabled">
+                    </div>
+                </div>
+
+                <div class="row modal-body-height">
+
+                    <div class="col-md-3 col-md-offset-1">
+                        医生姓名：
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" id="name2" class="form-control" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+
+                <div class="row modal-body-height">
+
+                    <div class="col-md-3 col-md-offset-1">
+                        科室：
+                    </div>
+                    <div class="col-md-8">
+                        <select id="deid2" class="form-control"></select>
+                    </div>
+                </div>
+
+                <div class="row modal-body-height">
+
+                    <div class="col-md-3 col-md-offset-1">
+                        医生类型：
+                    </div>
+                    <div class="col-md-8">
+                        <select id="type2" class="form-control"></select>
+                    </div>
+                </div>
+
+                <div class="row modal-body-height">
+
+                    <div class="col-md-3 col-md-offset-1">
+                        医生简介：
+                    </div>
+                    <div class="col-md-8">
+                        <textarea id="introduction2" class="form-control" style="height:200px"></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="bOK2" onclick="update()">保存</button>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<script src="js/caseInfo/bootstrap-table.js"></script>                       <!--table插件-->
+<script src="js/caseInfo/bootstrap-table-zh-CN.js"></script>                 <!--中文table-->
+
+<script src="js/admin/managedoctor.js"></script>
+<script src="js/util.js"></script>
+
+<script src="js/admin/fileinput.js"></script>
+<script src="js/admin/zh.js"></script>
+
+<script type="text/javascript">
+    $("#download").click(function () {
+        var $eleFormDoc = $("<form method='get'></form>");
+
+
+        $eleFormDoc.attr("action",config.download_url + "/doctor.xlsx");
+
+        $(document.body).append($eleFormDoc);
+
+        //提交表单，实现下载
+        $eleFormDoc.submit();
+    })
+
+</script>
+
+<script type="text/javascript">
+    $(function() {
+        $("#excelFile").fileinput({
+            uploadUrl: config.base_url+ "Importxls", //上传的地址  ?token="+checktoken()+"&type=doctor
+            language: "zh",
+            showCaption: true,              //是否显示标题
+            uploadAsync: false,
+            showUpload: true,               //是否显示上传按钮
+            showRemove: true,               //是否显示移除按钮
+            showPreview: true,                //是否显示预览按钮
+            allowedFileExtensions: ["xls", "xlsx"], //接收的文件后缀
+            uploadExtraData: {  //上传的时候，增加的附加参数
+                token:checktoken(),
+                type:"doctor"
+                // folder: '数据导入文件', guid: $("#AttachGUID").val()
+            }
+        })
+            .on('fileuploaded',function (event, data, previewId, index) {
+                var res = data.response;
+                console.log(res);
+            })
+    });
+</script>

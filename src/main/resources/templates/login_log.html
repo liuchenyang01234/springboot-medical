@@ -1,0 +1,28 @@
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/bootstrap-table.css">
+
+
+<div class="col-md-9" >
+    <h3>登录记录查看</h3>
+<ul id="myTab" class="nav nav-tabs">
+    <li class="active">
+        <a id="#status1" data-toggle="tab" onclick="init_log(1)">
+            成功记录
+        </a>
+    </li>
+    <li>
+        <a id="#status2" data-toggle="tab" onclick="init_log(0)">
+            失败记录
+        </a>
+    </li>
+</ul>
+
+    <div id="list-login-s1">
+        <table id="login-s1"></table>
+    </div>
+</div>
+<script src="js/util.js"></script>
+<script src="js/lib/jquery-3.2.1.min.js"></script>
+<script src="js/caseInfo/bootstrap-table.js"></script>                       <!--table插件-->
+<script src="js/caseInfo/bootstrap-table-zh-CN.js"></script>                 <!--中文table-->
+<script src="js/login_log.js"></script>

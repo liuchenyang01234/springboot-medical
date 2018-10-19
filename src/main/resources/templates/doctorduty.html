@@ -1,0 +1,74 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="css/reservation/basic.css" type="text/css" rel="stylesheet">
+<link href="css/reservation/xz_ks.css" type="text/css" rel="stylesheet">
+
+
+<div class="col-md-9">
+
+    <br>
+    <h3>排班和预约信息</h3>
+    <br>
+
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h3 class="panel-title">今日预约咨询</h3>
+        </div>
+
+        <div id="list-orders">
+            <table id="order"></table>
+        </div>
+
+    </div>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">我的排班</h3>
+        </div>
+
+        <div class="yy_paiban">
+            <table id="maintable" width="100%">
+                <thead id="thead">
+
+                </thead>
+
+                <tbody id="tbody">
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+<!--排班列表弹框-->
+<div class="modal fade" tabindex="-1" role="dialog" id="duty-list-modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" >排班列表</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <div id="list-duty">
+                    <table id="duty"></table>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+
+
+<script src="js/order/orderlist_by_date.js"></script>
+<script src="js/doctor/load_duty.js"></script>
+<script type="text/javascript">
+    init_orderlist(getNowFormatDate());
+
+</script>

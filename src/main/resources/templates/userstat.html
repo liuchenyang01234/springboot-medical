@@ -1,0 +1,160 @@
+<link rel="stylesheet" href="css/bootstrap-table.css">
+
+<br>
+<div class="outlet">
+    <!-- Start .outlet -->
+    <!-- Page start here ( usual with .row ) -->
+    <div class="row">
+        <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
+            <!-- col-lg-4 start here -->
+            <div class="panel panel-default plain" id="spr_1">
+                <!-- Start .panel -->
+                <div class="panel-heading white-bg">
+                    <h4 class="panel-title"><i class="ec-user"></i> 用户数据</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" onclick="switch_data(1)">
+                        <div class="carousel-tile carousel slide">
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <div class="tile blue">
+                                        <div class="tile-icon">
+                                            <i class="st-chat s64"></i>
+                                        </div>
+                                        <div class="tile-content">
+                                            <div class="number countTo" data-from="0" data-to="24" id="new_user">0</div>
+                                            <h3>昨日新增用户</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Carousel -->
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" onclick="switch_data(2)">
+                        <div class="carousel-tile carousel slide">
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <div class="tile orange">
+                                        <!-- tile start here -->
+                                        <div class="tile-icon">
+                                            <i class="ec-cog s64"></i>
+                                        </div>
+                                        <div class="tile-content">
+                                            <div class="number countTo" data-from="0" data-to="5" id="new_patient">0</div>
+                                            <h3>昨日新增患者</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Carousel -->
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" onclick="switch_data(3)">
+                        <div class="carousel-tile carousel slide">
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <div class="tile green">
+                                        <!-- tile start here -->
+                                        <div class="tile-icon">
+                                            <i class="ec-cog s64"></i>
+                                        </div>
+                                        <div class="tile-content">
+                                            <div class="number countTo" data-from="0" data-to="5" id="new_case">0</div>
+                                            <h3>昨日新增病历</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Carousel -->
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" onclick="switch_data(4)">
+                        <div class="carousel-tile carousel slide">
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <div class="tile red">
+                                        <!-- tile start here -->
+                                        <div class="tile-icon">
+                                            <i class="ec-cog s64"></i>
+                                        </div>
+                                        <div class="tile-content">
+                                            <div class="number countTo" data-from="0" data-to="5" id="all_user">0</div>
+                                            <h3>用户总数</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Carousel -->
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 sortable-layout ui-sortable">
+                        <div class="panel panel-default plain toggle">
+                            <!-- Start .panel -->
+                            <div class="panel-heading white-bg">
+                                <h4 class="panel-title"><i class="im-bars"></i>近7日数据</h4>
+                            </div>
+                            <div class="panel-body white-bg" id="container_7">
+                                <canvas id="chart_7" ></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 sortable-layout ui-sortable">
+                        <div class="panel panel-default plain toggle">
+                            <!-- Start .panel -->
+                            <div class="panel-heading white-bg">
+                                <h4 class="panel-title"><i class="im-bars"></i>近30日数据</h4>
+                            </div>
+                            <div class="panel-body white-bg" id="container_30">
+                                <canvas id="chart_30" ></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-6 sortable-layout ui-sortable">
+                        <div class="panel panel-default plain toggle">
+                            <!-- Start .panel -->
+                            <div class="panel-heading white-bg">
+                                <h4 class="panel-title"><i class="im-bars"></i>历史用户数据</h4>
+                            </div>
+                            <div class="panel-body white-bg">
+                                <div class="col-lg-6 col-md-6 sortable-layout ui-sortable">
+                                    <table id="stat_user_table"></table>
+                                </div>
+                                <div class="col-lg-6 col-md-6 sortable-layout ui-sortable">
+                                    <div id="container_month">
+                                        <canvas id="chart_month" ></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- End .panel -->
+        </div>
+        <!-- col-lg-4 end here -->
+    </div>
+    <!-- Page End here -->
+</div>
+
+<script src="js/caseInfo/bootstrap-table.js"></script>                       <!--table插件-->
+<script src="js/caseInfo/bootstrap-table-zh-CN.js"></script>                 <!--中文table-->
+<script src="js/lib/bootbox.min.js"></script>
+<script src="js/lib/Chart.js"></script>
+<script src="js/util.js"></script>
+<script src="js/admin/userstat.js"></script>
+<script>
+    //加载近7、30日订单数据
+    function userstat() {
+        var ctx1 = document.getElementById("chart_7").getContext("2d");
+        var ctx2 = document.getElementById("chart_30").getContext("2d");
+        var ctx3 = document.getElementById("chart_month").getContext("2d");
+        init_user_data(1,ctx1);
+        init_user_data(2,ctx2);
+        month_user_data(ctx3);
+    }
+    window.onload = userstat();
+</script>

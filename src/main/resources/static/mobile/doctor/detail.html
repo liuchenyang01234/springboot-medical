@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <link href="../css/app.css" rel="stylesheet">
+    <link href="../css/doctor.css" rel="stylesheet">
+</head>
+<body id="body" style="">
+    <div id="app">
+        <div class="fullheight">
+            <div class="fullheight">
+                <div class="doctordetail" style="min-height: 818px;">
+
+                    <!--顶部栏-->
+                    <div class="header textc">
+                        <!--后退按钮-->
+                        <a href="javascript:void(0);" class="nav-inav typo_white typo_middle iconfont fright"></a>
+                        <span data-v-17a302ca="" class="iconfont typo_white goback"></span>
+                        <!--医生姓名-->
+                        <div class="alignc textc lh24 pt10 pb10 titlenames ">
+                            <span id="doctor-head" class="inblo elli topnames align_top"
+                                  style="max-width: 7.2rem;">医生主页-</span>
+                        </div>
+                    </div> <!---->
+
+                    <!--医生基本信息-->
+                    <div id="description" class="topdocinfo pt10 pb10 pagn typo_white bg_green">
+
+                    </div>
+
+                    <!--医生页面切换，class=cur，disabled为当前页面-->
+                    <div id="doctor_tab" class="layout">
+                        <div id="tab-bar" class="tab-bar layout">
+
+                            <button value="page-intro" class="cur" onclick="switch_page($(this))">医生简介</button>
+                            <button value="page-order" class="" onclick="switch_page($(this))">预约咨询</button>
+                            <button value="page-eval" class="" onclick="switch_page($(this))">患者评价</button>
+                        </div>
+
+                        <div id="page-intro" class="fleft fullwidth" style="">
+                            <div class="bg_white mt10 pb20">
+                                <div class="lh30 typo_grey">
+                                    <span class="pt10 pb10 inblo" style="padding-left: 4.8%;">介绍</span>
+                                </div>
+                                <div class="pagn comtipsli">
+                                    <div id="doctor-intro" class="lh20 typo_small typo_black04">
+                                        医生介绍
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="page-order" class="fleft fullwidth" style="display: none;">
+
+                            <div  class="bg_white mt10 pt10 pb10">
+                                <div  class="typo_middle typo_black0 elli unitlistgh">
+
+                                    <div  class="childbox">
+
+                                        <div  class="vux-slider">
+                                            <div class="vux-swiper" style="height: 270.976px;">
+                                                <div style="width: 9.14667rem; margin: 0px auto; border: 1px solid rgb(233, 233, 233); border-radius: 0.05333rem;">
+                                                        <div class="pl10 pr10 lh20 pt5 pb5 typo_smaller c-ff9f textl layout"
+                                                             style="border-bottom: 1px solid rgb(233, 233, 233);">
+                                                            可预约一周内时间段
+                                                        </div>
+
+                                                            <div id="thead" class="schtab schtitle layout">
+
+                                                            </div>
+
+                                                            <div id="t-am" class="schtab layout">
+
+                                                            </div>
+
+                                                            <div id="t-pm" class="schtab layout botschtab">
+
+                                                            </div>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div id="page-eval" class="fleft fullwidth" style="display:none">
+
+                            <div id="eval-list" class="layout bg_white mt10" id="content">
+
+                                <div v-for="item in items" class="pagn pt10 pb10 bt_gray relative">
+                                    <div class="layout column-3 lh26">
+
+                                        <div class="w-40 lh26 lh_small fs12rem typo_gray">
+                                            <span>患者评分</span>
+                                            <span><i class="c-ffd">{{item.score}}</i></span>
+                                        </div>
+                                        <div class="w-40 lh26 lh_small fs12rem typo_gray">
+                                            <span>评价时间</span>
+                                            <span>{{item.create_time}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="ml45">
+                                        <div class="mt10 typo_small typo_grey lh_nor tj">
+                                            {{item.comment}}
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--医生简介替换模板-->
+    <script type="text/html" id="doctor_description">
+        <div class="pt10 pb10 layout">
+            <!--医生头像-->
+            <a class="inblo fleft relative mr20 mt3">
+                <img id="doctor-avatar" class="docimg" src="{img}">
+            </a>
+            <div class="fleft w160 lh18">
+                <div class="layout">
+                    <span id="doctor-name" class="fleft inblo elli mr5 lh20 typo_large"
+                          style="max-width: 3.2rem;">{doctor_name}
+                    </span>
+                </div>
+                <span id="doctor-type" class="block lh18 pt5 pb5 typo_smaller">{doctor_type}</span>
+                <span id="doctor-dep"
+                      class="block lh18 pl5 pr5 boradius2 typo_smaller bg-ffb elli">{department}</span>
+            </div>
+        </div>
+
+        <!--todo:评分获取接口-->
+        <div class="typo_smaller elli flex">
+            <span class="flex-item">评分&nbsp;<i id="doctor-score" class="c-ffd">0.0</i></span>
+            <span class="flex-item">咨询量&nbsp;<i id="doctor-orders" class="c-ffd">0</i></span>
+            <span class="flex-item">投诉量&nbsp;<i id="doctor-report" class="c-ffd">0</i></span>
+        </div>
+
+        <div class="pb10">
+            <div class="mt10 typo_smaller layout pl30 relative clearfix showgoodat">
+                <span class="goodat">费用：</span>
+                <div class="goodatcon">
+                    <div class="lh18">{price}</div>
+                </div>
+            </div>
+        </div>
+
+    </script>
+
+    <script src="../js/lib/vue.js"></script>
+    <script src="../js/lib/jquery-3.2.1.min.js"></script>
+    <script src="../js/util.js"></script>
+    <script src="../js/doctor/doctordetail.js"></script>
+
+</body>
+</html>

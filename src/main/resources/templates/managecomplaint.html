@@ -1,0 +1,128 @@
+
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/bootstrap-table.css">
+
+<div class="col-md-9">
+
+    <h3>管理患者投诉</h3>
+
+    <table class="table table-hover">
+
+        <tbody>
+        <tr><td><b>查询投诉</b><br>根据患者或医生姓名查询投诉</td>
+            <td>
+                <input type="text" id="search_name" class="form-control">
+            </td>
+            <td>
+                <input type="button" class="btn btn-success" id="search_by_name" onclick="init_list()" value="查询">
+            </td></tr>
+
+        </tbody></table>
+
+    <div id="list-complaint">
+        <table id="complaint"></table>
+    </div>
+</div>
+
+<!--回复投诉弹框-->
+<div class="modal fade" tabindex="-1" role="dialog" id="info-modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" >投诉信息</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <div id="alertmessage"></div>
+
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">投诉信息</h3>
+                    </div>
+
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <span class="glyphicon glyphicon-bullhorn sameline"></span>
+                            <b>投诉编号：</b>
+                            <div class="sameline" id="eid"></div></li>
+                        <li class="list-group-item">
+                            <span class="glyphicon glyphicon-user sameline"></span>
+                            <b>订单信息：</b>
+                            <div class="sameline"><a id="order_info" href="" target="_blank">点击查看订单信息</a></div></li>
+                        <li class="list-group-item">
+                            <span class="glyphicon glyphicon-user sameline"></span>
+                            <b>投诉内容：</b>
+                            <div class="sameline" id="comment"></div></li>
+                    </ul>
+
+                    <!--<table class="table table-hover">-->
+
+                        <!--<tbody>-->
+                        <!--<tr><td><b>投诉编号</b><br>当前查看的投诉编号</td>-->
+                            <!--<td>-->
+                                <!--<input type="text" id="eid" class="form-control" aria-describedby="basic-addon1" disabled="disabled">-->
+                            <!--</td>-->
+                        <!--</tr>-->
+                        <!--<tr><td><b>查看订单</b><br>查看被投诉的订单信息</td>-->
+                            <!--<td>-->
+                                <!--<a id="order_info" href="" target="_blank">点击查看订单信息</a>-->
+                            <!--</td></tr>-->
+                        <!--<tr><td><b>投诉内容</b><br>查看被投诉的订单信息</td>-->
+                            <!--<td>-->
+                                <!--<textarea id="comment" class="form-control" aria-describedby="basic-addon1" disabled="disabled"></textarea>-->
+                            <!--</td></tr>-->
+
+                        <!--</tbody></table>-->
+
+                </div>
+
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">回复记录</h3>
+                    </div>
+
+                    <div id="list-reply">
+                        <table id="reply"></table>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#reply-modal">回复留言</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="reply-modal" tabindex="-1" role="dialog" aria-labelledby="replyModalLabel">
+    <div class="modal-dialog" style="margin-top: 200px ;" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">回复患者投诉</h4>
+            </div>
+            <div class="modal-body">
+
+                <div id="alertmessage2"></div>
+
+                <div id="content">
+                    <textarea id="text_reply" class="form-control" style="height:200px"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" id="bOK" onclick="reply()" class="btn btn-primary">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/caseInfo/bootstrap-table.js"></script>                       <!--table插件-->
+<script src="js/caseInfo/bootstrap-table-zh-CN.js"></script>                 <!--中文table-->
+
+<script src="js/admin/managecomplaint.js"></script>
+<script src="js/util.js"></script>

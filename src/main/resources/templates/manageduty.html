@@ -1,0 +1,237 @@
+
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="css/bootstrap-table.css">
+    <link href="css/reservation/basic.css" type="text/css" rel="stylesheet">
+    <link href="css/reservation/xz_ks.css" type="text/css" rel="stylesheet">
+
+
+
+<div class="col-md-9">
+
+    <h3 style="margin-top: 20px;margin-bottom: 10px;">管理医生排班</h3>
+
+    <table class="table table-hover">
+
+        <tbody>
+        <tr><td><b>查找医生</b><br>根据姓名查找医生排班进行修改</td>
+            <td>
+                <input type="text" id="search_name" class="form-control">
+            </td>
+            <td>
+                <input type="button" class="btn btn-success" id="search_by_name" onclick="init_doctor_list()" value="查询">
+            </td></tr>
+
+        </tbody></table>
+
+    <div id="list-doctors">
+        <table id="doctors"></table>
+    </div>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">医生排班</h3>
+        </div>
+
+        <div class="yy_paiban">
+            <table id="maintable" width="100%">
+                <thead id="thead">
+
+                </thead>
+
+                <tbody id="tbody">
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+    <!--排班列表弹框--1-->
+    <div class="modal fade" tabindex="-1" role="dialog" id="duty-list-modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" >排班列表</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div id="alertmessage1"></div>
+
+                    <table class="table table-hover">
+
+                        <tbody>
+                        <tr><td><b>医生编号</b><br>当前查看的医生编号</td>
+                            <td>
+                                <input type="text" id="doctor_id1" class="form-control" aria-describedby="basic-addon1" disabled="disabled">
+                            </td>
+                        </tr>
+                        <tr><td><b>添加排班</b><br>为医生添加一个新的排班</td>
+                            <td>
+                                <input type="button" class="btn btn-info" id="create_duty" data-toggle="modal" data-target="#create-duty-modal" value="添加医生排班">
+                            </td></tr>
+
+                        </tbody></table>
+
+
+                        <div id="list-duty">
+                            <table id="duty"></table>
+                        </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+
+    <!--新增排班弹框--2-->
+    <div class="modal fade" tabindex="-1" role="dialog" id="create-duty-modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" >新增医生排班</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div id="alertmessage2"></div>
+
+                    <div class="row modal-body-height">
+
+                        <div class="col-md-3 col-md-offset-1">
+                            医生编号：
+                        </div>
+                        <div class="col-md-8" >
+                            <input type="text" id="doctor_id2" class="form-control" aria-describedby="basic-addon1" disabled="disabled">
+                        </div>
+                    </div>
+
+                    <div class="row modal-body-height">
+
+                        <div class="col-md-3 col-md-offset-1">
+                            星期：
+                        </div>
+                        <div class="col-md-8">
+                            <select id="weekday" class="form-control">
+                                <option value ="1">星期一</option>
+                                <option value ="2">星期二</option>
+                                <option value="3">星期三</option>
+                                <option value="4">星期四</option>
+                                <option value ="5">星期五</option>
+                                <option value="6">星期六</option>
+                                <option value="7">星期日</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row modal-body-height">
+
+                        <div class="col-md-3 col-md-offset-1">
+                            时间段：
+                        </div>
+                        <div class="col-md-8">
+                            <select id="range" class="form-control"></select>
+                        </div>
+                    </div>
+
+                    <div class="row modal-body-height">
+
+                        <div class="col-md-3 col-md-offset-1">
+                            最大接诊数量：
+                        </div>
+                        <div class="col-md-8" >
+                            <input type="text" id="max_count1" class="form-control" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary" id="bOK2" onclick="add_duty()">保存</button>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+
+    <!--编辑排班弹框--3-->
+    <div class="modal fade" tabindex="-1" role="dialog" id="edit-duty-modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" >编辑医生排班</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="alert alert-info">
+                        <a href="#" class="close" data-dismiss="alert">
+                            &times;
+                        </a>
+                        <strong>提示：</strong>修改后的最大接诊数量将在下周生效。
+                    </div>
+
+                    <div id="alertmessage3"></div>
+
+                    <div class="row modal-body-height">
+
+                        <div class="col-md-3 col-md-offset-1">
+                            医生编号：
+                        </div>
+                        <div class="col-md-8" >
+                            <input type="text" id="doctor_id3" class="form-control" aria-describedby="basic-addon1" disabled="disabled">
+                        </div>
+                    </div>
+
+                    <div class="row modal-body-height">
+
+                        <div class="col-md-3 col-md-offset-1">
+                            排班编号：
+                        </div>
+                        <div class="col-md-8" >
+                            <input type="text" id="s_id" class="form-control" aria-describedby="basic-addon1" disabled="disabled">
+                        </div>
+                    </div>
+
+
+                    <div class="row modal-body-height">
+
+                        <div class="col-md-3 col-md-offset-1">
+                            最大接诊数量：
+                        </div>
+                        <div class="col-md-8" >
+                            <input type="text" id="max_count2" class="form-control" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+
+                    <div class="row modal-body-height">
+
+                        <div class="col-md-3 col-md-offset-1">
+                            状态：
+                        </div>
+                        <div class="col-md-8">
+                            <select id="status" class="form-control">
+                                <option value ="0">无效</option>
+                                <option value ="1">有效</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary" id="bOK3" onclick="edit_duty()">保存</button>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+
+
+<script src="js/caseInfo/bootstrap-table.js"></script>                       <!--table插件-->
+<script src="js/caseInfo/bootstrap-table-zh-CN.js"></script>                 <!--中文table-->
+    <script src="js/util.js"></script>
+    <script src="js/admin/manageduty.js"></script>
